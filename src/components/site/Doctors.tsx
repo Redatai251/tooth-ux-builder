@@ -1,54 +1,45 @@
+import { ArrowRight } from "lucide-react";
 import d1 from "@/assets/dentist-1.jpg";
 import d2 from "@/assets/dentist-2.jpg";
 import d3 from "@/assets/dentist-3.jpg";
 
 const doctors = [
-  { img: d1, name: "Dr. Sarah Mitchell", role: "Cosmetic Dentist" },
-  { img: d2, name: "Dr. James Carter", role: "Orthodontist" },
-  { img: d3, name: "Dr. Emily Stone", role: "General Dentist" },
+  { img: d2, name: "Dr. James Carter", role: "Dental Implant Specialist" },
+  { img: d1, name: "Dr. Sarah Mitchell", role: "Dental Implant Specialist" },
+  { img: d3, name: "Dr. Emily Stone", role: "Dental Implant Specialist" },
 ];
 
 export function Doctors() {
   return (
     <section className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex items-end justify-between flex-wrap gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-brand-soft px-4 py-1.5 text-xs font-medium text-brand">
-              Our Specialists
-            </div>
-            <h2 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight">
-              Meet Our Expert Doctors
-            </h2>
-          </div>
-          <p className="text-muted-foreground max-w-md">
-            Trusted, board-certified specialists dedicated to your comfort and
-            healthy smile.
+        <div className="grid lg:grid-cols-2 gap-10 mb-14">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Meet Our Specialist
+          </h2>
+          <p className="text-muted-foreground self-end">
+            We use only the best quality materials on the market in order to
+            provide the best products to our patients.
           </p>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-3 gap-6">
-          {doctors.map((d) => (
-            <div key={d.name} className="group">
-              <div className="rounded-3xl overflow-hidden shadow-soft aspect-[3/4]">
-                <img
-                  src={d.img}
-                  alt={d.name}
-                  className="size-full object-cover group-hover:scale-105 transition duration-500"
-                  loading="lazy"
-                />
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                <div>
+        <div className="relative">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {doctors.map((d) => (
+              <div key={d.name} className="rounded-3xl border border-border bg-card overflow-hidden">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img src={d.img} alt={d.name} className="size-full object-cover" loading="lazy" />
+                </div>
+                <div className="p-5">
                   <h3 className="font-semibold">{d.name}</h3>
                   <p className="text-sm text-muted-foreground">{d.role}</p>
                 </div>
-                <span className="size-9 rounded-full bg-brand text-brand-foreground grid place-items-center text-lg">
-                  →
-                </span>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <button className="hidden lg:grid absolute -right-4 top-1/2 -translate-y-1/2 size-10 rounded-full bg-brand text-brand-foreground place-items-center shadow-soft">
+            <ArrowRight className="size-4" />
+          </button>
         </div>
       </div>
     </section>

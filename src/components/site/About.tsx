@@ -1,69 +1,36 @@
-import { HeartPulse, Users, Headphones, Video, ArrowUpRight } from "lucide-react";
-import smile from "@/assets/dental-smile.jpg";
-
-const features = [
-  { icon: HeartPulse, title: "Best Medical Service" },
-  { icon: Users, title: "Expert Medical Team" },
-  { icon: Headphones, title: "24/7 Instant Support" },
-  { icon: Video, title: "Virtual Consultation" },
-];
+import patient from "@/assets/dental-patient.jpg";
 
 export function About() {
   return (
     <section className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-        <div className="relative">
-          <div className="rounded-3xl overflow-hidden shadow-elegant">
-            <img
-              src={smile}
-              alt="Healthy bright smile"
-              className="w-full aspect-square object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 size-12 rounded-full bg-white shadow-elegant grid place-items-center">
-            <div className="size-3 rounded-full bg-brand" />
-          </div>
+        <div className="rounded-3xl overflow-hidden shadow-soft aspect-[4/3]">
+          <img src={patient} alt="Smiling patient" className="size-full object-cover" loading="lazy" />
         </div>
-
         <div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Expert Care for Every Tooth,
-            <br />
-            <span className="text-brand">Restore Your Confidence</span>
+            You Have Lots Of Reasons To Choose Us
           </h2>
-          <p className="mt-5 text-muted-foreground max-w-xl">
-            From routine cleanings to advanced procedures, our expert team is
-            dedicated to helping you achieve and maintain optimal dental health
-            throughout your life.
+          <p className="mt-5 text-muted-foreground max-w-lg">
+            We use only the best quality materials on the market in order to
+            provide the best products to our patients.
           </p>
-
-          <div className="mt-8 grid sm:grid-cols-2 gap-4">
-            {features.map((f) => (
-              <div
-                key={f.title}
-                className="rounded-2xl bg-card p-5 shadow-soft hover:shadow-elegant transition border border-border/50"
-              >
-                <div className="size-10 rounded-xl bg-brand-soft grid place-items-center text-brand">
-                  <f.icon className="size-5" />
-                </div>
-                <h3 className="mt-4 font-semibold">{f.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  Our expert team delivers trusted, compassionate care.
-                </p>
-              </div>
+          <ul className="mt-6 space-y-3 text-sm">
+            {[
+              "Fresh approach on all dental treatment",
+              "Our treatment is quick and easy",
+              "Highest quality dental team",
+              "State of the art dental services",
+            ].map((t) => (
+              <li key={t} className="flex items-center gap-2">
+                <span className="size-1.5 rounded-full bg-brand" />
+                {t}
+              </li>
             ))}
-          </div>
-
-          <a
-            href="#"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand text-brand-foreground pl-6 pr-2 py-2.5 text-sm font-medium shadow-soft hover:shadow-elegant transition"
-          >
-            More About Us
-            <span className="size-8 rounded-full bg-white/20 grid place-items-center">
-              <ArrowUpRight className="size-4" />
-            </span>
-          </a>
+          </ul>
+          <button className="mt-8 rounded-full bg-brand text-brand-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition">
+            See more
+          </button>
         </div>
       </div>
     </section>
