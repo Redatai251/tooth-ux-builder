@@ -1,92 +1,88 @@
-import { Play, ChevronDown } from "lucide-react";
-import woman from "@/assets/dental-woman.jpg";
-import man from "@/assets/dental-man.jpg";
-import kids from "@/assets/dental-kids.jpg";
-import tooth from "@/assets/dental-tooth.png";
+import { ArrowRight } from "lucide-react";
+import doctor from "@/assets/denture-hero.png";
+import a1 from "@/assets/denture-team-1.png";
+import a2 from "@/assets/denture-team-2.png";
+import a3 from "@/assets/denture-team-3.png";
+import a4 from "@/assets/denture-team-4.png";
+
+const avatars = [a1, a2, a3, a4];
+
+function Avatars({ n = 4 }: { n?: number }) {
+  return (
+    <div className="flex -space-x-3">
+      {avatars.slice(0, n).map((src, i) => (
+        <img
+          key={i}
+          src={src}
+          alt=""
+          className="size-9 rounded-full ring-2 ring-white object-cover bg-white"
+        />
+      ))}
+    </div>
+  );
+}
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 bg-background overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
+    <section
+      className="relative pt-28 pb-20 overflow-hidden text-white"
+      style={{ background: "var(--hero-gradient)" }}
+    >
+      {/* subtle grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center min-h-[640px]">
         <div>
-          <div className="text-brand text-3xl mb-6">✦</div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
-            Providing Digital Dentistry Services
+          <div className="inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 ring-1 ring-white/15">
+            <Avatars n={4} />
+            <span className="text-sm font-medium">15k Satisficed Patients</span>
+          </div>
+
+          <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
+            Healthy teeth happy<br />life start here
           </h1>
-          <p className="mt-6 text-muted-foreground max-w-md">
-            A fresh approach to the dental lab is dandy. We were founded for a
-            single reason.
+
+          <p className="mt-6 text-white/75 max-w-md">
+            Experience gentle, advanced, and affordable dental care designed to
+            keep your smile bright and your life healthier.
           </p>
 
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-6">
             <a
               href="#"
-              className="rounded-full bg-brand text-brand-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition"
+              className="rounded-full bg-white text-brand-dark pl-6 pr-1.5 py-1.5 text-sm font-semibold inline-flex items-center gap-3 hover:bg-brand-soft transition"
             >
-              Book An Appointment
+              Get Started Today
+              <span className="size-9 rounded-full bg-brand text-white grid place-items-center">
+                <ArrowRight className="size-4" />
+              </span>
             </a>
-            <a
-              href="#"
-              className="rounded-full border-2 border-brand text-brand px-6 py-3 text-sm font-medium hover:bg-brand-soft transition inline-flex items-center gap-2"
-            >
-              <Play className="size-4 fill-current" />
-              Watch Video
-            </a>
-          </div>
-
-          <div className="mt-12 flex items-center gap-6 flex-wrap">
             <div className="flex items-center gap-3">
-              <img src={tooth} alt="" className="size-20 object-contain" />
-              <div>
-                <p className="text-sm font-medium">From safety and</p>
-                <p className="text-sm font-medium">Regulatory Consulting</p>
-                <p className="text-sm font-medium">to reverse</p>
-                <div className="mt-2 h-0.5 w-24 bg-brand" />
-              </div>
+              <Avatars n={3} />
+              <p className="text-sm leading-tight">
+                Our <span className="font-bold">5</span>k+ Patient<br />Worldwide
+              </p>
             </div>
-            <div className="size-10 rounded-full bg-accent-yellow grid place-items-center text-foreground/80">
-              <ChevronDown className="size-5" />
-            </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-3 gap-6 max-w-md">
-            {[
-              { n: "1500", l: "Online Appointment" },
-              { n: "120K", l: "Recovered Patients" },
-              { n: "96%", l: "Satisfaction Rate" },
-            ].map((s) => (
-              <div key={s.n}>
-                <div className="text-3xl font-bold">{s.n}</div>
-                <p className="text-xs text-muted-foreground mt-1">{s.l}</p>
-              </div>
-            ))}
           </div>
         </div>
 
-        {/* Right collage */}
-        <div className="relative aspect-square max-w-xl mx-auto w-full">
-          <div className="absolute top-0 left-0 w-1/2 h-1/2 p-2">
-            <div className="size-full rounded-full bg-accent-yellow overflow-hidden">
-              <img src={woman} alt="Happy patient" className="size-full object-cover" loading="eager" />
-            </div>
+        <div className="relative">
+          <div className="relative mx-auto max-w-lg">
+            <div className="absolute -inset-6 rounded-[3rem] bg-white/5 ring-1 ring-white/10" />
+            <img
+              src={doctor}
+              alt="Friendly dentist holding teeth model"
+              className="relative w-full h-auto object-contain drop-shadow-2xl"
+              loading="eager"
+            />
           </div>
-          <div className="absolute top-0 right-0 w-1/2 h-1/2 p-2">
-            <div className="size-full rounded-full bg-brand overflow-hidden">
-              <img src={man} alt="Dentist" className="size-full object-cover" />
-            </div>
-          </div>
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 p-2">
-            <div className="size-full rounded-full bg-accent-green overflow-hidden grid place-items-center">
-              <img src={kids} alt="Kids dental care" className="size-full object-cover" />
-            </div>
-          </div>
-          <div className="absolute bottom-0 right-0 w-1/2 h-1/2 p-2">
-            <div className="size-full rounded-full bg-brand-glow overflow-hidden">
-              <img src={man} alt="Specialist" className="size-full object-cover" />
-            </div>
-          </div>
-          <span className="absolute -top-4 right-1/2 text-brand text-2xl">✦</span>
-          <span className="absolute -bottom-4 -right-4 text-accent-yellow text-3xl">✦</span>
         </div>
       </div>
     </section>

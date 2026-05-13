@@ -1,46 +1,56 @@
-import { Smile, Stethoscope, Activity, Sparkles, Crown, Bone } from "lucide-react";
+import { ArrowUpRight, Stethoscope, Smile, Crown, Ambulance } from "lucide-react";
 
 const services = [
-  { icon: Smile, title: "Dental Implants", bg: "bg-accent-yellow/60" },
-  { icon: Stethoscope, title: "Emergency Dentistry", bg: "bg-accent-green/60" },
-  { icon: Activity, title: "Root Canal Treatment", bg: "bg-brand-soft" },
-  { icon: Sparkles, title: "Bonding", bg: "bg-brand-soft" },
-  { icon: Smile, title: "Whitening", bg: "bg-accent-yellow/60" },
-  { icon: Crown, title: "Crowns", bg: "bg-accent-green/60" },
-  { icon: Bone, title: "Implants", bg: "bg-accent-pink/60" },
+  { tag: "General", icon: Stethoscope, title: "Comprehensive Dental Checkups" },
+  { tag: "Orthodontics", icon: Smile, title: "Orthodontic Braces & Aligners" },
+  { tag: "Surgery", icon: Crown, title: "Custom Crowns & Bridges" },
+  { tag: "Emergency", icon: Ambulance, title: "Emergency Dental Services" },
 ];
 
 export function Services() {
   return (
-    <section className="py-24 bg-secondary/30">
+    <section className="py-24 bg-brand-soft/40">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="grid lg:grid-cols-2 gap-10 mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            You Can Get The Highest Quality Service Here
-          </h2>
-          <p className="text-muted-foreground self-end">
-            We use only the best quality materials on the market in order to
-            provide the best products to our patients.
-          </p>
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          <div>
+            <p className="text-brand text-sm font-bold tracking-[0.25em]">— OUR SERVICES</p>
+            <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight max-w-3xl leading-[1.08]">
+              Comprehensive dental services for every family smile
+            </h2>
+          </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.slice(0, 6).map((s) => (
-            <div key={s.title} className={`rounded-3xl p-7 ${s.bg}`}>
-              <div className="size-12 rounded-full bg-brand grid place-items-center text-brand-foreground">
-                <s.icon className="size-5" />
+        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((s, i) => (
+            <article
+              key={s.title}
+              className={`group rounded-3xl p-7 transition hover:-translate-y-1 hover:shadow-elegant ${
+                i === 0 ? "bg-brand text-white" : "bg-white"
+              }`}
+            >
+              <div className={`size-14 rounded-full grid place-items-center ${i === 0 ? "bg-white/20 text-white" : "bg-brand-soft text-brand"}`}>
+                <s.icon className="size-6" />
               </div>
-              <h3 className="mt-6 text-xl font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-foreground/70">
-                Cras Dapibus The live element always save. Aenean vulputate
-                eleifend tellus, aenean leo ligula.
+              <p className={`mt-8 text-xs font-semibold uppercase tracking-widest ${i === 0 ? "text-white/70" : "text-brand"}`}>
+                {s.tag}
               </p>
-              <button className="mt-5 rounded-full bg-brand text-brand-foreground text-xs px-4 py-2 hover:opacity-90 transition">
-                See more
-              </button>
-            </div>
+              <h3 className="mt-2 text-xl font-semibold leading-snug">{s.title}</h3>
+              <a
+                href="#"
+                className={`mt-6 inline-flex items-center gap-2 text-sm font-medium ${i === 0 ? "text-white" : "text-brand"}`}
+              >
+                Learn more <ArrowUpRight className="size-4" />
+              </a>
+            </article>
           ))}
         </div>
+
+        <p className="mt-10 text-center text-muted-foreground">
+          Join us and create smiles that truly inspire confidence.{" "}
+          <a href="#" className="text-brand font-semibold inline-flex items-center gap-1">
+            Contact Us <ArrowUpRight className="size-4" />
+          </a>
+        </p>
       </div>
     </section>
   );
