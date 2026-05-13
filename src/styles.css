@@ -63,7 +63,11 @@
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-soft: var(--brand-soft);
   --color-brand-glow: var(--brand-glow);
-  --color-accent-lime: var(--accent-lime);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-darker: var(--brand-darker);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-green: var(--accent-green);
+  --color-accent-pink: var(--accent-pink);
 }
 
 :root {
