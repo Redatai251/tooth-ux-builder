@@ -1,23 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
-import { About } from "@/components/site/About";
-import { Marquee } from "@/components/site/Marquee";
 import { Services } from "@/components/site/Services";
+import { About } from "@/components/site/About";
 import { Doctors } from "@/components/site/Doctors";
-import { CTA } from "@/components/site/CTA";
 import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "DentCure — Modern Dental Care for a Brighter Smile" },
-      {
-        name: "description",
-        content:
-          "Gentle, personalized dental care from cleanings to advanced cosmetic treatments. Book your appointment with DentCure today.",
-      },
+      { title: "Dental — Providing Digital Dentistry Services" },
+      { name: "description", content: "Modern digital dentistry: implants, whitening, emergency care and more from our expert specialists." },
     ],
   }),
 });
@@ -27,11 +21,9 @@ function Index() {
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <About />
-      <Marquee />
       <Services />
+      <About />
       <Doctors />
-      <CTA />
       <Footer />
     </main>
   );

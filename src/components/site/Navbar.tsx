@@ -1,36 +1,31 @@
 import { Link } from "@tanstack/react-router";
-import { Search, ArrowUpRight } from "lucide-react";
 
-const links = ["Home", "Doctors", "Patients", "Pharmacy", "Pages", "Admin"];
+const links = ["Home", "Services", "About Us", "Help"];
 
 export function Navbar() {
   return (
     <header className="absolute top-0 left-0 right-0 z-30">
-      <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold tracking-tight text-brand">
-          Dent<span className="text-foreground">Cure</span>
+      <div className="mx-auto max-w-7xl px-6 py-6 flex items-center justify-between">
+        <Link to="/" className="text-2xl font-bold tracking-tight">
+          Dental
         </Link>
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-foreground/80">
-          {links.map((l) => (
-            <a key={l} href="#" className="hover:text-brand transition-colors">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-foreground/80">
+          {links.map((l, i) => (
+            <a
+              key={l}
+              href="#"
+              className={`hover:text-brand transition ${i === 0 ? "text-foreground underline underline-offset-8 decoration-2" : ""}`}
+            >
               {l}
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <button className="size-9 rounded-full bg-white/70 backdrop-blur grid place-items-center hover:bg-white transition">
-            <Search className="size-4" />
-          </button>
-          <a
-            href="#"
-            className="inline-flex items-center gap-2 rounded-full bg-brand text-brand-foreground pl-5 pr-2 py-2 text-sm font-medium shadow-soft hover:shadow-elegant transition"
-          >
-            Book Appointment
-            <span className="size-7 rounded-full bg-white/20 grid place-items-center">
-              <ArrowUpRight className="size-3.5" />
-            </span>
-          </a>
-        </div>
+        <a
+          href="#"
+          className="rounded-full bg-brand text-brand-foreground px-5 py-2.5 text-sm font-medium hover:opacity-90 transition"
+        >
+          Contact us
+        </a>
       </div>
     </header>
   );
