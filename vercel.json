@@ -4,7 +4,7 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/((?!_build/|favicon.ico|robots.txt|sitemap.xml).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
