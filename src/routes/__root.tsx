@@ -72,18 +72,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "A modern dental clinic website with a user-friendly interface and intuitive navigation." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "A modern dental clinic website with a user-friendly interface and intuitive navigation." },
+      { title: "Finan Speciality Dental Clinic" },
+      { name: "description", content: "Modern, gentle dental care for the whole family in Addis Ababa." },
+      { property: "og:site_name", content: "Finan Speciality Dental Clinic" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "A modern dental clinic website with a user-friendly interface and intuitive navigation." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e87870b9-98b8-4e87-8207-bcd5924766de/id-preview-459ca93f--582a44bd-859c-462f-9434-9a7bc58e1615.lovable.app-1778756547159.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e87870b9-98b8-4e87-8207-bcd5924766de/id-preview-459ca93f--582a44bd-859c-462f-9434-9a7bc58e1615.lovable.app-1778756547159.png" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
