@@ -1,44 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/site/Navbar";
+import { Layout } from "@/components/site/Layout";
 import { Hero } from "@/components/site/Hero";
-import { InfoStrip } from "@/components/site/InfoStrip";
-import { About } from "@/components/site/About";
-import { Services } from "@/components/site/Services";
+import { ServicesGrid } from "@/components/site/ServicesGrid";
 import { WhyChoose } from "@/components/site/WhyChoose";
 import { Steps } from "@/components/site/Steps";
-import { CaseStudies } from "@/components/site/CaseStudies";
-import { Features } from "@/components/site/Features";
-import { Doctors } from "@/components/site/Doctors";
-import { Testimonials } from "@/components/site/Testimonials";
-import { Blog } from "@/components/site/Blog";
-import { Footer } from "@/components/site/Footer";
+import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Denture — Healthy Teeth, Happy Life Starts Here" },
-      { name: "description", content: "Gentle, advanced and affordable dental care for the whole family. Book your appointment today." },
+      { title: "Finan Speciality Dental Clinic — Addis Ababa" },
+      { name: "description", content: "Gentle, advanced and affordable dental care for the whole family at Finan Speciality Dental Clinic in Addis Ababa. Book your appointment today." },
+      { property: "og:title", content: "Finan Speciality Dental Clinic — Addis Ababa" },
+      { property: "og:description", content: "Comprehensive dental services — preventive care, implants, braces, cosmetic dentistry and more." },
+      { property: "og:url", content: "https://tooth-ux-builder.lovable.app/" },
     ],
+    links: [{ rel: "canonical", href: "https://tooth-ux-builder.lovable.app/" }],
   }),
 });
 
 function Index() {
   return (
-    <main className="min-h-screen bg-background">
-      <Navbar />
+    <Layout>
       <Hero />
-      <InfoStrip />
-      <About />
-      <Services />
+      <ServicesGrid limit={6} />
       <WhyChoose />
       <Steps />
-      <CaseStudies />
-      <Features />
-      <Doctors />
-      <Testimonials />
-      <Blog />
-      <Footer />
-    </main>
+      <TestimonialsSection limit={4} />
+    </Layout>
   );
 }

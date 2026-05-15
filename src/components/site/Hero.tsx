@@ -1,86 +1,46 @@
-import { ArrowRight } from "lucide-react";
-import doctor from "@/assets/denture-hero.png";
-import a1 from "@/assets/denture-team-1.png";
-import a2 from "@/assets/denture-team-2.png";
-import a3 from "@/assets/denture-team-3.png";
-import a4 from "@/assets/denture-team-4.png";
-
-const avatars = [a1, a2, a3, a4];
-
-function Avatars({ n = 4 }: { n?: number }) {
-  return (
-    <div className="flex -space-x-3">
-      {avatars.slice(0, n).map((src, i) => (
-        <img
-          key={i}
-          src={src}
-          alt=""
-          className="size-9 rounded-full ring-2 ring-white object-cover bg-white"
-        />
-      ))}
-    </div>
-  );
-}
+import { Link } from "@tanstack/react-router";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import hero from "@/assets/home-hero.jpg";
 
 export function Hero() {
   return (
-    <section
-      className="relative pt-28 pb-20 overflow-hidden text-white"
-      style={{ background: "var(--hero-gradient)" }}
-    >
-      {/* subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center min-h-[640px]">
+    <section className="relative overflow-hidden" style={{ background: "var(--hero-gradient)" }}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14 sm:py-20 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div>
-          <div className="inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur px-3 py-1.5 ring-1 ring-white/15">
-            <Avatars n={4} />
-            <span className="text-sm font-medium">15k Satisficed Patients</span>
-          </div>
-
-          <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
-            Healthy teeth happy<br />life start here
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/70 backdrop-blur px-3 py-1.5 text-xs text-brand-dark border border-white/60">
+            <CheckCircle2 className="size-3.5 text-brand" /> 500+ patients treated
+          </span>
+          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl leading-tight text-foreground">
+            Healthy teeth, happy life starts here
           </h1>
-
-          <p className="mt-6 text-white/75 max-w-md">
-            Experience gentle, advanced, and affordable dental care designed to
-            keep your smile bright and your life healthier.
+          <p className="mt-5 text-base sm:text-lg text-muted-foreground max-w-xl">
+            Gentle, advanced and affordable dental care for the whole family at
+            Finan Speciality Dental Clinic — Addis Ababa.
           </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-6">
-            <a
-              href="#"
-              className="rounded-full bg-white text-brand-dark pl-6 pr-1.5 py-1.5 text-sm font-semibold inline-flex items-center gap-3 hover:bg-brand-soft transition"
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              to="/book"
+              className="inline-flex items-center gap-2 rounded-full bg-brand text-white px-6 py-3 text-sm hover:opacity-90"
             >
-              Get Started Today
-              <span className="size-9 rounded-full bg-brand text-white grid place-items-center">
-                <ArrowRight className="size-4" />
-              </span>
-            </a>
-            <div className="flex items-center gap-3">
-              <Avatars n={3} />
-              <p className="text-sm leading-tight">
-                Our <span className="font-bold">5</span>k+ Patient<br />Worldwide
-              </p>
-            </div>
+              Book Appointment <ArrowRight className="size-4" />
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-2 rounded-full bg-white text-foreground px-6 py-3 text-sm border border-border hover:bg-secondary"
+            >
+              Our Services
+            </Link>
           </div>
         </div>
 
         <div className="relative">
-          <div className="relative mx-auto max-w-lg">
-            <div className="absolute -inset-6 rounded-[3rem] bg-white/5 ring-1 ring-white/10" />
+          <div className="aspect-[4/5] sm:aspect-[5/6] rounded-3xl overflow-hidden shadow-xl bg-white">
             <img
-              src={doctor}
-              alt="Friendly dentist holding teeth model"
-              className="relative w-full h-auto object-contain drop-shadow-2xl"
-              loading="eager"
+              src={hero}
+              alt="Friendly dentist at Finan Speciality Dental Clinic"
+              className="w-full h-full object-cover"
+              width={1280}
+              height={1280}
             />
           </div>
         </div>
