@@ -1,50 +1,34 @@
 import { CalendarCheck, Stethoscope, ClipboardList, Smile } from "lucide-react";
 
 const steps = [
-  { n: "01", icon: CalendarCheck, t: "Book Appointment", d: "Schedule your visit online or by phone at your convenience." },
-  { n: "02", icon: Stethoscope, t: "Consultation & Checkup", d: "We assess your smile and listen to your concerns carefully." },
-  { n: "03", icon: ClipboardList, t: "Personal Treatment Plan", d: "Tailored plan crafted for your goals, comfort and budget." },
-  { n: "04", icon: Smile, t: "Enjoy a Bright Smile", d: "Walk out confident with results that last a lifetime." },
+  { n: "01", icon: CalendarCheck, t: "Book Appointment", d: "Schedule online or call us at your convenience." },
+  { n: "02", icon: Stethoscope, t: "Consultation & Checkup", d: "We assess your smile and listen to your concerns." },
+  { n: "03", icon: ClipboardList, t: "Personal Treatment Plan", d: "A tailored plan for your goals and budget." },
+  { n: "04", icon: Smile, t: "Enjoy a Bright Smile", d: "Walk out confident with results that last." },
 ];
 
 export function Steps() {
   return (
-    <section className="py-24 bg-brand-darker text-white relative overflow-hidden">
-      <div
-        className="absolute inset-0 opacity-[0.05] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="text-center max-w-3xl mx-auto">
-          <p className="text-brand-glow text-sm font-bold tracking-[0.25em]">— HOW IT WORKS</p>
-          <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08]">
-            Step-by-step care for healthy, confident smiles
-          </h2>
+    <section className="py-16 sm:py-20 bg-secondary/40">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="max-w-2xl">
+          <p className="text-brand text-xs tracking-[0.25em] uppercase">— How It Works</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">Step-by-step care for confident smiles</h2>
         </div>
-
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {steps.map((s) => (
-            <div key={s.n} className="rounded-3xl bg-white/5 ring-1 ring-white/10 p-7 hover:bg-white/10 transition">
+            <div key={s.n} className="rounded-2xl bg-white p-6 border border-border">
               <div className="flex items-center justify-between">
-                <span className="size-14 rounded-full bg-brand grid place-items-center">
-                  <s.icon className="size-6" />
+                <span className="size-12 rounded-full bg-brand-soft text-brand grid place-items-center">
+                  <s.icon className="size-5" />
                 </span>
-                <span className="text-xs font-bold tracking-widest text-white/50">STEP {s.n}</span>
+                <span className="text-xs tracking-widest text-muted-foreground">STEP {s.n}</span>
               </div>
-              <h3 className="mt-6 text-xl font-semibold">{s.t}</h3>
-              <p className="mt-2 text-sm text-white/60">{s.d}</p>
+              <h3 className="mt-5 text-lg">{s.t}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
             </div>
           ))}
         </div>
-
-        <p className="mt-12 text-center text-white/70">
-          Let's make something great work together.{" "}
-          <a href="#" className="text-brand-glow font-semibold">Get Free Quote →</a>
-        </p>
       </div>
     </section>
   );
