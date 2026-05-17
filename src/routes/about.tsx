@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
-import { Award, Heart, Users, ArrowRight } from "lucide-react";
+import { Award, Heart, Users, ArrowRight, CheckCircle2 } from "lucide-react";
 import doctor from "@/assets/dr-selamawit.jpg";
+import { SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
@@ -19,39 +20,45 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <Layout>
-      <section className="py-14 sm:py-20" style={{ background: "var(--hero-gradient)" }}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div className="rounded-3xl overflow-hidden bg-white shadow-xl aspect-[4/5] max-w-md mx-auto lg:mx-0 w-full">
-            <img src={doctor} alt="Dr. Selamawit Abraham Mesfin" className="w-full h-full object-cover" />
-          </div>
+      {/* Dark hero like image-1 */}
+      <section className="relative overflow-hidden bg-brand-dark text-white">
+        <div className="absolute inset-0 opacity-50 pointer-events-none"
+          style={{ background: "radial-gradient(60% 50% at 50% 0%, rgba(110,231,255,0.25) 0%, transparent 70%)" }} />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-14 sm:py-20 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
-            <p className="text-brand text-xs tracking-[0.25em] uppercase">— Meet The Founder</p>
-            <h1 className="mt-3 text-4xl sm:text-5xl">Dr. Selamawit Abraham Mesfin</h1>
-            <p className="mt-2 text-brand-dark">HO, MPH, DDM</p>
-            <p className="mt-5 text-muted-foreground">
-              Dr. Selamawit founded Finan Speciality Dental Clinic in 2016 with a clear mission:
-              bring modern, gentle and affordable dentistry to families in Addis Ababa. With more
-              than a decade of clinical experience, she leads a warm, specialist-driven team
-              dedicated to long-term oral health.
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs border border-white/20">
+              <CheckCircle2 className="size-3.5 text-brand-glow" /> 20,000+ Trusted Audience
+            </span>
+            <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl">
+              Your trusted dental <span className="text-brand-glow">family in Addis</span>
+            </h1>
+            <p className="mt-5 text-white/75 max-w-xl">
+              Founded by Dr. Selamawit Abraham Mesfin (HO, MPH, DDM), Finan Speciality Dental
+              Clinic delivers modern, gentle and affordable dental care — built around comfort
+              and long-term oral health.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/book" className="inline-flex items-center gap-2 rounded-full bg-brand text-white px-6 py-3 text-sm hover:opacity-90">
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link to="/book" className="inline-flex items-center gap-2 rounded-full bg-brand text-white px-6 py-3 text-sm hover:bg-brand-glow hover:text-brand-dark">
                 Book Visit <ArrowRight className="size-4" />
               </Link>
-              <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-white text-foreground px-6 py-3 text-sm border border-border hover:bg-secondary">
+              <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur text-white px-6 py-3 text-sm border border-white/20 hover:bg-white/20">
                 Our Services
               </Link>
             </div>
           </div>
+          <div className="rounded-[2rem] overflow-hidden bg-white/5 ring-1 ring-white/15 shadow-2xl aspect-[4/5] max-w-md mx-auto lg:mx-0 w-full">
+            <img src={doctor} alt="Dr. Selamawit Abraham Mesfin" className="w-full h-full object-cover" />
+          </div>
         </div>
       </section>
 
+      {/* Stat cards */}
       <section className="py-16 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 grid sm:grid-cols-3 gap-5">
           {[
             { icon: Award, t: "10+ Years Experience", d: "A decade of clinical excellence and continuous training in modern dentistry." },
-            { icon: Users, t: "Specialist Team", d: "A handpicked team of specialists across orthodontics, surgery, pediatrics and cosmetic care." },
-            { icon: Heart, t: "Patient-First Care", d: "Every treatment plan is personalized — we listen first, treat gently, and follow up." },
+            { icon: Users, t: "Specialist Team", d: "Specialists across orthodontics, surgery, pediatrics and cosmetic care." },
+            { icon: Heart, t: "Patient-First Care", d: "Every plan is personalized — we listen first, treat gently, and follow up." },
           ].map((c) => (
             <div key={c.t} className="rounded-2xl bg-white border border-border p-6">
               <span className="size-12 rounded-full bg-brand-soft text-brand grid place-items-center">
@@ -59,6 +66,17 @@ function AboutPage() {
               </span>
               <h3 className="mt-5 text-lg">{c.t}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{c.d}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Clinic photos */}
+      <section className="pb-16 bg-background">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid sm:grid-cols-2 gap-4">
+          {SITE.clinicPhotos.map((src, i) => (
+            <div key={i} className="rounded-3xl overflow-hidden border border-border aspect-[4/3]">
+              <img src={src} alt={`Clinic ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
             </div>
           ))}
         </div>

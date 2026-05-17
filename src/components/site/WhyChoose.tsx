@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import clinic from "@/assets/clinic-interior-1.jpg";
+import { SITE } from "@/lib/site";
 
 const points = [
   "Friendly, calming environment",
@@ -12,8 +12,13 @@ export function WhyChoose() {
   return (
     <section className="py-16 sm:py-20 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
-        <div className="rounded-3xl overflow-hidden border border-border">
-          <img src={clinic} alt="Finan dental clinic interior" className="w-full h-full object-cover aspect-[4/3]" loading="lazy" />
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-2xl overflow-hidden border border-border aspect-[4/5]">
+            <img src={SITE.clinicPhotos[0]} alt="Finan dental clinic interior" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-border aspect-[4/5] mt-8">
+            <img src={SITE.clinicPhotos[1]} alt="Finan dental clinic building" className="w-full h-full object-cover" loading="lazy" />
+          </div>
         </div>
         <div>
           <p className="text-brand text-xs tracking-[0.25em] uppercase">— Why Choose Us</p>

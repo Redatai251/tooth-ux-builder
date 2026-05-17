@@ -35,21 +35,37 @@ export function Footer() {
 
         <div className="rounded-3xl bg-white shadow-sm border border-border p-8 sm:p-10">
           <div className="grid lg:grid-cols-12 gap-10">
-            {/* Brand + newsletter */}
+            {/* Brand + book button + socials */}
             <div className="lg:col-span-4">
-              <img src={logo} alt={SITE.name} className="h-12 w-auto" />
+              <img src={logo} alt={SITE.name} className="h-20 sm:h-24 w-auto" />
               <p className="mt-4 text-sm text-muted-foreground max-w-xs">
                 Comprehensive dental care for every family — gentle, modern, and personal.
               </p>
-              <h4 className="mt-6 text-sm">Sign up for healthy-smile tips.</h4>
-              <form className="mt-3 flex items-center gap-1 rounded-full bg-secondary/60 p-1 max-w-sm">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 bg-transparent px-4 text-sm placeholder:text-muted-foreground outline-none"
-                />
-                <button className="rounded-full bg-foreground text-white px-4 py-2 text-sm">Submit</button>
-              </form>
+              <Link
+                to="/book"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-dark text-white px-6 py-3 text-sm hover:bg-brand"
+              >
+                Book Appointment <ArrowRight className="size-4" />
+              </Link>
+
+              <div className="mt-6">
+                <p className="text-sm">Follow us</p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  {SITE.socials.map((s) => (
+                    <a
+                      key={s.name}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.name}
+                      title={s.name}
+                      className="size-11 rounded-full overflow-hidden bg-white border border-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition grid place-items-center"
+                    >
+                      <img src={s.icon} alt={s.name} className="w-full h-full object-cover" loading="lazy" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Pages */}
@@ -76,7 +92,7 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Contact + map */}
+            {/* Contact */}
             <div className="lg:col-span-3">
               <h4 className="text-sm flex items-center gap-2"><Phone className="size-4 text-brand" /> Contact</h4>
               <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
@@ -89,15 +105,6 @@ export function Footer() {
                 <div>
                   {SITE.address.line1}<br />{SITE.address.line2}<br />{SITE.address.line3}
                 </div>
-              </div>
-              <div className="mt-4 rounded-xl overflow-hidden border border-border h-32">
-                <iframe
-                  src={SITE.mapEmbed}
-                  className="w-full h-full"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Clinic location"
-                />
               </div>
             </div>
           </div>
