@@ -68,20 +68,6 @@ function ContactPage() {
           </a>
         </div>
       </section>
-
-      <section className="pb-20 bg-background">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="rounded-3xl overflow-hidden border border-border shadow-sm">
-            <iframe
-              src={SITE.mapEmbed}
-              className="w-full h-[420px] sm:h-[520px]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Finan Speciality Dental Clinic location"
-            />
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 }

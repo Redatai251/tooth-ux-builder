@@ -22,6 +22,37 @@ export const SITE = {
   ],
   mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.7315076907453!2d38.78735057352809!3d8.996542089499247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85c5636c2e6b%3A0x4273780dbb8b7952!2sFinan%20Speciality%20Dental%20Clinic!5e1!3m2!1sen!2set!4v1778861799430!5m2!1sen!2set",
+  socials: [
+    {
+      name: "TikTok",
+      href: "https://www.tiktok.com/@finanspecialitydentalcl1/",
+      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO-2p_JtJE4Dqjg_XYiR1F3oFo-hvfU3yXng&s",
+    },
+    {
+      name: "Facebook",
+      href: "https://web.facebook.com/people/Finan-Speciality-Dental-Clinic/",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/960px-2023_Facebook_icon.svg.png",
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/",
+      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJZq17XNmKJNrTtEeo8rQIOLgoziEgQWnP2Q&s",
+    },
+    {
+      name: "Telegram",
+      href: "https://t.me/abenezerzewedu",
+      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3cHB6VomfB1AuG5MfXObJ_9VhZvWJee_Qgg&s",
+    },
+    {
+      name: "WhatsApp",
+      href: "https://wa.me/251911055655",
+      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTAESYvvqOVbKqYxwK3HEzYNESOgCeDaaFlQ&s",
+    },
+  ],
+  clinicPhotos: [
+    "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG0hRR_yD-CNNjjTslRV4f5TlqjqSyG79PARNBywulPy2btsoVgVuRY7k41QrCDyAQyLvWQmtDsmbJUF7UEji1MRQQ5lJRyhzHv_vc_mbpXdvnX4Q9g6I30wufgSgygdgvq1ETwFtgkU3gD=s1360-w1360-h1020-rw",
+    "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGtbvmUAtCoxFXrvovdb5RJ5ZIQ7hwKNVfsONWhXYpSf3pkc3UDgfngw3KNcbLa3P3THu401gV2rWHTT8SL1JEX50c7e7mxFDwgnRP02vctvNexUVzdmPcMKRs-BS10vb3HS8_FLtA3LG0=s1360-w1360-h1020-rw",
+  ],
 };
 
 export type Service = {

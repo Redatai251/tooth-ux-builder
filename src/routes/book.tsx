@@ -4,7 +4,6 @@ import { useState } from "react";
 import { z } from "zod";
 import { Phone, MessageCircle, Send, Calendar as CalIcon } from "lucide-react";
 import { SITE, SERVICES } from "@/lib/site";
-import clinic1 from "@/assets/clinic-interior-1.jpg";
 import clinic2 from "@/assets/clinic-interior-2.jpg";
 
 const searchSchema = z.object({ service: z.string().optional() });
@@ -15,7 +14,7 @@ export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
       { title: "Book Appointment — Finan Speciality Dental Clinic" },
-      { name: "description", content: "Book your dental appointment at Finan Speciality Dental Clinic in Addis Ababa. We confirm via WhatsApp and Telegram." },
+      { name: "description", content: "Book your dental appointment at Finan Speciality Dental Clinic in Addis Ababa. Send your request via WhatsApp or Telegram." },
       { property: "og:url", content: "https://tooth-ux-builder.lovable.app/book" },
     ],
     links: [{ rel: "canonical", href: "https://tooth-ux-builder.lovable.app/book" }],
@@ -36,9 +35,8 @@ const formSchema = z.object({
 
 function BookPage() {
   const { service: presetService } = useSearch({ from: "/book" });
-  const [submitting, setSubmitting] = useState(false);
-  const [done, setDone] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [pendingMessage, setPendingMessage] = useState<string | null>(null);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -53,7 +51,6 @@ function BookPage() {
       return;
     }
     const v = parsed.data;
-    setSubmitting(true);
     const serviceLabel = SERVICES.find((s) => s.slug === v.service)?.title ?? v.service;
     const time = `${v.timeHour}:${String(v.timeMinute).padStart(2, "0")} ${v.timePeriod}`;
     const message =
@@ -67,15 +64,17 @@ Preferred Date: ${v.date}
 Preferred Time: ${time}
 Notes: ${v.notes || "—"}`;
 
-    const encoded = encodeURIComponent(message);
-    // Open WhatsApp with prefilled message
-    window.open(`https://wa.me/${SITE.whatsapp}?text=${encoded}`, "_blank", "noopener,noreferrer");
-    // Open Telegram share to forward to the user account
-    window.open(`https://t.me/share/url?url=${encodeURIComponent(SITE.domain)}&text=${encoded}`, "_blank", "noopener,noreferrer");
+    setPendingMessage(message);
+  }
 
-    setDone(true);
-    setSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+  function sendVia(channel: "whatsapp" | "telegram") {
+    if (!pendingMessage) return;
+    const encoded = encodeURIComponent(pendingMessage);
+    const url =
+      channel === "whatsapp"
+        ? `https://wa.me/${SITE.whatsapp}?text=${encoded}`
+        : `https://t.me/share/url?url=${encodeURIComponent(SITE.domain)}&text=${encoded}`;
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -84,7 +83,7 @@ Notes: ${v.notes || "—"}`;
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <h1 className="text-4xl sm:text-5xl">Book Your Appointment</h1>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-            Fill the form — we'll send your details directly to our reception via WhatsApp and Telegram.
+            Fill the form — choose WhatsApp or Telegram to send your details to our reception.
           </p>
         </div>
       </section>
@@ -150,16 +149,31 @@ Notes: ${v.notes || "—"}`;
 
             <button
               type="submit"
-              disabled={submitting}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-brand text-white px-7 py-3 text-sm hover:opacity-90 disabled:opacity-60"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-brand-dark text-white px-7 py-3 text-sm hover:bg-brand"
             >
               <Send className="size-4" /> Send Request
             </button>
 
-            {done && (
-              <p className="text-sm text-brand">
-                ✅ Request prepared! Please send the WhatsApp and Telegram messages we just opened to confirm your booking.
-              </p>
+            {pendingMessage && (
+              <div className="rounded-2xl border border-border bg-secondary/40 p-5">
+                <p className="text-sm font-medium">Choose how to send your request:</p>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={() => sendVia("whatsapp")}
+                    className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-5 py-2.5 text-sm hover:opacity-90"
+                  >
+                    <MessageCircle className="size-4" /> Send via WhatsApp
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => sendVia("telegram")}
+                    className="inline-flex items-center gap-2 rounded-full bg-[#229ED9] text-white px-5 py-2.5 text-sm hover:opacity-90"
+                  >
+                    <Send className="size-4" /> Send via Telegram
+                  </button>
+                </div>
+              </div>
             )}
           </form>
 
@@ -171,25 +185,11 @@ Notes: ${v.notes || "—"}`;
                   <li key={p}><a href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-brand">{p}</a></li>
                 ))}
               </ul>
-              <div className="mt-5 flex flex-wrap gap-2">
-                <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-4 py-2 text-xs">
-                  <MessageCircle className="size-3.5" /> WhatsApp
-                </a>
-                <a href={`https://t.me/${SITE.telegramUser}`} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#229ED9] text-white px-4 py-2 text-xs">
-                  <Send className="size-3.5" /> Telegram
-                </a>
-              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
-              <img src={clinic1} alt="Clinic interior" loading="lazy" className="rounded-2xl aspect-square object-cover border border-border" />
+              <img src={SITE.clinicPhotos[0]} alt="Clinic interior" loading="lazy" className="rounded-2xl aspect-square object-cover border border-border" />
               <img src={clinic2} alt="Treatment room" loading="lazy" className="rounded-2xl aspect-square object-cover border border-border" />
-            </div>
-
-            <div className="rounded-2xl overflow-hidden border border-border h-56">
-              <iframe src={SITE.mapEmbed} className="w-full h-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Map" />
             </div>
           </aside>
         </div>

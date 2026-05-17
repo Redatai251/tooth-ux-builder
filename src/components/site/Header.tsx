@@ -14,10 +14,10 @@ const nav = [
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-3 flex items-center gap-4">
+    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-border">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-2 flex items-center gap-4">
         <Link to="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Finan Speciality Dental Clinic" className="h-12 sm:h-14 w-auto" />
+          <img src={logo} alt="Finan Speciality Dental Clinic" className="h-16 sm:h-20 w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1 mx-auto rounded-full bg-secondary/60 p-1">
@@ -27,7 +27,7 @@ export function Header() {
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
               className="px-4 py-2 text-sm rounded-full text-foreground/70 hover:text-foreground transition"
-              activeProps={{ className: "px-4 py-2 text-sm rounded-full bg-white shadow-sm text-foreground" }}
+              activeProps={{ className: "px-4 py-2 text-sm rounded-full bg-brand-dark text-white shadow-sm" }}
             >
               {l.label}
             </Link>
@@ -36,7 +36,7 @@ export function Header() {
 
         <Link
           to="/book"
-          className="hidden sm:inline-flex items-center rounded-full bg-brand text-white px-5 py-2.5 text-sm hover:opacity-90 transition"
+          className="hidden sm:inline-flex items-center rounded-full bg-brand-dark text-white px-5 py-2.5 text-sm hover:bg-brand transition"
         >
           Book Appointment
         </Link>
@@ -59,7 +59,7 @@ export function Header() {
               activeOptions={{ exact: l.to === "/" }}
               onClick={() => setOpen(false)}
               className="px-3 py-2.5 rounded-lg text-sm hover:bg-secondary"
-              activeProps={{ className: "px-3 py-2.5 rounded-lg text-sm bg-brand-soft text-brand-dark" }}
+              activeProps={{ className: "px-3 py-2.5 rounded-lg text-sm bg-brand-dark text-white" }}
             >
               {l.label}
             </Link>
@@ -67,7 +67,7 @@ export function Header() {
           <Link
             to="/book"
             onClick={() => setOpen(false)}
-            className="mt-2 inline-flex justify-center rounded-full bg-brand text-white px-5 py-2.5 text-sm"
+            className="mt-2 inline-flex justify-center rounded-full bg-brand-dark text-white px-5 py-2.5 text-sm"
           >
             Book Appointment
           </Link>
