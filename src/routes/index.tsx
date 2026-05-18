@@ -4,8 +4,9 @@ import { Hero } from "@/components/site/Hero";
 import { ServicesGrid } from "@/components/site/ServicesGrid";
 import { WhyChoose } from "@/components/site/WhyChoose";
 import { Steps } from "@/components/site/Steps";
-import { Award, Heart, Users, ArrowRight, Check } from "lucide-react";
+import { Award, Heart, Users, ArrowRight, Check, GraduationCap, Stethoscope } from "lucide-react";
 import doctor from "@/assets/dr-selamawit.jpg";
+import abenezer from "@/assets/dr-abenezer.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
