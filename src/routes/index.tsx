@@ -28,43 +28,68 @@ function Index() {
       <Hero />
       <ServicesGrid limit={6} />
 
-      {/* About preview */}
+      {/* Our Doctors */}
       <section className="py-16 sm:py-20 bg-secondary/30">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
-          <div className="rounded-3xl overflow-hidden bg-white shadow-xl aspect-[4/5] max-w-md mx-auto lg:mx-0 w-full">
-            <img src={doctor} alt="Dr. Selamawit Abraham Mesfin" className="w-full h-full object-cover" />
-          </div>
-          <div>
-            <p className="text-brand text-xs tracking-[0.25em] uppercase">— About Us</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">Dr. Selamawit Abraham Mesfin</h2>
-            <p className="mt-2 text-brand-dark">HO, MPH, DDM · 10+ years experience</p>
-            <p className="mt-5 text-muted-foreground">
-              Founder of Finan Speciality Dental Clinic. Dr. Selamawit leads a warm,
-              specialist-driven team committed to modern, gentle and affordable dentistry
-              for every family in Addis Ababa.
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="max-w-2xl">
+            <p className="text-brand text-xs tracking-[0.25em] uppercase">— Our Doctors</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">Meet the team behind your smile</h2>
+            <p className="mt-4 text-muted-foreground">
+              A warm, specialist-driven team committed to modern, gentle and affordable dentistry.
             </p>
-            <div className="mt-7 grid sm:grid-cols-3 gap-3">
-              {[
-                { icon: Award, t: "10+ Years" },
-                { icon: Users, t: "Specialist Team" },
-                { icon: Heart, t: "Patient-First" },
-              ].map((c) => (
-                <div key={c.t} className="rounded-2xl bg-white border border-border p-4 flex items-center gap-3">
-                  <span className="size-10 rounded-full bg-brand-soft text-brand grid place-items-center">
-                    <c.icon className="size-4" />
-                  </span>
-                  <span className="text-sm">{c.t}</span>
+          </div>
+          <div className="mt-10 grid md:grid-cols-2 gap-6">
+            {[
+              {
+                name: "Dr. Selamawit Abraham Mesfin",
+                role: "Founder · HO, MPH, DDM · 10+ years",
+                img: doctor,
+                desc: "Founder of Finan Speciality Dental Clinic — leading every treatment plan with comfort, science and care.",
+                icon: Stethoscope,
+              },
+              {
+                name: "Dr. Abenezer Dagnachew",
+                role: "General Dentist · BDS",
+                img: abenezer,
+                desc: "Calm, patient-first general dentistry — routine check-ups, fillings and cosmetic work focused on long-term oral health.",
+                icon: GraduationCap,
+              },
+            ].map((d) => (
+              <article key={d.name} className="rounded-3xl bg-white border border-border overflow-hidden flex flex-col">
+                <div className="aspect-[4/3] bg-secondary/40 overflow-hidden">
+                  <img src={d.img} alt={d.name} loading="lazy" className="w-full h-full object-cover" />
                 </div>
-              ))}
-            </div>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link to="/about" className="inline-flex items-center gap-2 rounded-full bg-brand-dark text-white px-6 py-3 text-sm hover:bg-brand">
-                More About Us <ArrowRight className="size-4" />
-              </Link>
-              <Link to="/book" className="inline-flex items-center gap-2 rounded-full bg-white text-foreground px-6 py-3 text-sm border border-border hover:bg-secondary">
-                Book Visit
-              </Link>
-            </div>
+                <div className="p-6">
+                  <span className="inline-flex items-center gap-2 text-xs text-brand">
+                    <d.icon className="size-3.5" /> {d.role}
+                  </span>
+                  <h3 className="mt-2 text-xl sm:text-2xl">{d.name}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{d.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 grid sm:grid-cols-3 gap-3 max-w-3xl">
+            {[
+              { icon: Award, t: "10+ Years" },
+              { icon: Users, t: "Specialist Team" },
+              { icon: Heart, t: "Patient-First" },
+            ].map((c) => (
+              <div key={c.t} className="rounded-2xl bg-white border border-border p-4 flex items-center gap-3">
+                <span className="size-10 rounded-full bg-brand-soft text-brand grid place-items-center">
+                  <c.icon className="size-4" />
+                </span>
+                <span className="text-sm">{c.t}</span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link to="/about" className="inline-flex items-center gap-2 rounded-full bg-brand-dark text-white px-6 py-3 text-sm hover:bg-brand">
+              More About Us <ArrowRight className="size-4" />
+            </Link>
+            <Link to="/book" className="inline-flex items-center gap-2 rounded-full bg-white text-foreground px-6 py-3 text-sm border border-border hover:bg-secondary">
+              Book Appointment
+            </Link>
           </div>
         </div>
       </section>
