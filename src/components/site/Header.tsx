@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/finan-logo.png";
 
 const nav = [
@@ -14,65 +14,74 @@ const nav = [
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-border">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-2 flex items-center gap-4">
-        <Link to="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Finan Speciality Dental Clinic" className="h-16 sm:h-20 w-auto" />
-        </Link>
+    <header className="absolute top-0 inset-x-0 z-40 pt-4 sm:pt-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex items-center gap-3 sm:gap-6 rounded-full bg-white/95 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,30,120,0.25)] ring-1 ring-black/5 pl-3 pr-3 sm:pl-5 sm:pr-2 py-2">
+          <Link to="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
+            <img
+              src={logo}
+              alt="Finan Speciality Dental Clinic"
+              className="h-14 sm:h-20 lg:h-24 w-auto"
+            />
+          </Link>
 
-        <nav className="hidden lg:flex items-center gap-1 mx-auto rounded-full bg-secondary/60 p-1">
-          {nav.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              activeOptions={{ exact: l.to === "/" }}
-              className="px-4 py-2 text-sm rounded-full text-foreground/70 hover:text-foreground transition"
-              activeProps={{ className: "px-4 py-2 text-sm rounded-full bg-brand-dark text-white shadow-sm" }}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
+          <nav className="hidden lg:flex items-center gap-1 ml-auto">
+            {nav.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeOptions={{ exact: l.to === "/" }}
+                className="inline-flex items-center gap-1 px-4 py-2 text-[15px] text-foreground/70 hover:text-foreground transition"
+                activeProps={{ className: "inline-flex items-center gap-1 px-4 py-2 text-[15px] text-foreground font-medium" }}
+              >
+                {l.label}
+                {l.label === "Services" || l.label === "Payment Plans" ? (
+                  <ChevronDown className="size-3.5 opacity-50" />
+                ) : null}
+              </Link>
+            ))}
+          </nav>
 
-        <Link
-          to="/book"
-          className="hidden sm:inline-flex items-center rounded-full bg-brand-dark text-white px-5 py-2.5 text-sm hover:bg-brand transition"
-        >
-          Book Appointment
-        </Link>
-
-        <button
-          className="lg:hidden ml-auto sm:ml-0 p-2 rounded-md hover:bg-secondary"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
-      </div>
-
-      {open && (
-        <nav className="lg:hidden border-t border-border bg-white px-4 py-4 flex flex-col gap-1">
-          {nav.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              activeOptions={{ exact: l.to === "/" }}
-              onClick={() => setOpen(false)}
-              className="px-3 py-2.5 rounded-lg text-sm hover:bg-secondary"
-              activeProps={{ className: "px-3 py-2.5 rounded-lg text-sm bg-brand-dark text-white" }}
-            >
-              {l.label}
-            </Link>
-          ))}
           <Link
             to="/book"
-            onClick={() => setOpen(false)}
-            className="mt-2 inline-flex justify-center rounded-full bg-brand-dark text-white px-5 py-2.5 text-sm"
+            className="hidden sm:inline-flex items-center rounded-full bg-brand-dark text-white px-5 lg:px-6 py-2.5 text-sm hover:bg-brand transition ml-auto lg:ml-2"
           >
             Book Appointment
           </Link>
-        </nav>
-      )}
+
+          <button
+            className="lg:hidden ml-auto sm:ml-0 p-2 rounded-full hover:bg-secondary"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
+
+        {open && (
+          <nav className="lg:hidden mt-2 rounded-3xl bg-white shadow-xl ring-1 ring-black/5 p-3 flex flex-col gap-1">
+            {nav.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeOptions={{ exact: l.to === "/" }}
+                onClick={() => setOpen(false)}
+                className="px-4 py-3 rounded-2xl text-sm hover:bg-secondary"
+                activeProps={{ className: "px-4 py-3 rounded-2xl text-sm bg-brand-dark text-white" }}
+              >
+                {l.label}
+              </Link>
+            ))}
+            <Link
+              to="/book"
+              onClick={() => setOpen(false)}
+              className="mt-1 inline-flex justify-center rounded-full bg-brand-dark text-white px-5 py-3 text-sm"
+            >
+              Book Appointment
+            </Link>
+          </nav>
+        )}
+      </div>
     </header>
   );
 }
