@@ -2,8 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { SERVICES } from "@/lib/site";
 
-export function ServicesGrid({ limit }: { limit?: number }) {
-  const items = limit ? SERVICES.slice(0, limit) : SERVICES;
+export function ServicesGrid() {
   return (
     <section className="py-16 sm:py-20 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -13,9 +12,8 @@ export function ServicesGrid({ limit }: { limit?: number }) {
             Comprehensive dental services for every family smile
           </h2>
         </div>
-
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {items.map((s) => (
+          {SERVICES.map((s) => (
             <article
               key={s.slug}
               className="group rounded-2xl bg-white border border-border overflow-hidden flex flex-col hover:shadow-md transition"
@@ -42,17 +40,6 @@ export function ServicesGrid({ limit }: { limit?: number }) {
             </article>
           ))}
         </div>
-
-        {limit && (
-          <div className="mt-10 text-center">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 rounded-full bg-foreground text-white px-6 py-3 text-sm hover:opacity-90"
-            >
-              View all services <ArrowUpRight className="size-4" />
-            </Link>
-          </div>
-        )}
       </div>
     </section>
   );
