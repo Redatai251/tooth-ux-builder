@@ -18,7 +18,7 @@ export const Route = createFileRoute("/services")({
 function ServicesPage() {
   return (
     <Layout>
-      <section className="pt-14 pb-4 bg-gradient-to-b from-brand-soft/40 to-background">
+      <section className="pt-36 sm:pt-44 pb-4 bg-gradient-to-b from-brand-soft/40 to-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <h1 className="text-4xl sm:text-5xl">Our Dental Services</h1>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
