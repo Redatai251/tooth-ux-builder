@@ -8,7 +8,7 @@ export const SITE = {
   email: "info@finandental.com",
   address: {
     line1: "Abrams Building, Cameroon St, Addis Ababa",
-    line2: "Behind Bole Medhanialem Church",
+    line2: "Near Bole Medhanialem Church",
     line3: "5th floor",
   },
   hours: [
