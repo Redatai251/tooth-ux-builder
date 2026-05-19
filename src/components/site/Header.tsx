@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import logo from "@/assets/finan-logo.png";
+
+const logo = "https://www.finandentalclinic.com/assets/finan-logo-IAKD4yG8.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -21,7 +22,7 @@ export function Header() {
             <img
               src={logo}
               alt="Finan Speciality Dental Clinic"
-              className="h-16 sm:h-20 w-auto object-contain"
+              className="h-14 sm:h-16 w-auto"
             />
           </Link>
 
