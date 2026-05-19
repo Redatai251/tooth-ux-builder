@@ -52,7 +52,7 @@ export function Footer() {
                 <p className="text-sm">Follow us</p>
                 <div className="mt-3 flex flex-wrap gap-3">
                   {SITE.socials.map((s) => (
-                    <a
+                    
                       key={s.name}
                       href={s.href}
                       target="_blank"
@@ -112,17 +112,33 @@ export function Footer() {
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground px-2">
           <p>Copyright © 2026 {SITE.name}. All rights reserved.</p>
-          <p>
-            Website Developed By{" "}
-            <a
-              href="https://bloomuptech.com/"
+          <div className="flex items-center gap-3">
+            <p>
+              Website Developed By{" "}
+              
+                href="https://bloomuptech.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand hover:underline"
+              >
+                BloomUp Technologies
+              </a>
+            </p>
+            
+              href="https://www.linkedin.com/in/abenezer-zewedu-5421923a5/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand hover:underline"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              className="size-7 rounded-full overflow-hidden border border-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition grid place-items-center"
             >
-              BloomUp Technologies
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrP14K7jUi_ydDYy-S-YsSt7KbAS8DrbHvzA&s"
+                alt="LinkedIn"
+                className="w-full h-full object-cover"
+              />
             </a>
-          </p>
+          </div>
         </div>
       </div>
     </footer>
