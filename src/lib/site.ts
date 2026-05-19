@@ -30,17 +30,17 @@ export const SITE = {
     },
     {
       name: "Facebook",
-      href: "https://web.facebook.com/people/Finan-Speciality-Dental-Clinic/",
+      href: "https://www.facebook.com/profile.php?id=61557142123469",
       icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/960px-2023_Facebook_icon.svg.png",
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/",
+      href: "https://www.instagram.com/finanspecialitydentalclinic?igsh=MXV4MDgxcnh5dHJxag==",
       icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJZq17XNmKJNrTtEeo8rQIOLgoziEgQWnP2Q&s",
     },
     {
       name: "Telegram",
-      href: "https://t.me/abenezerzewedu",
+      href: "tel:+251911055655",
       icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3cHB6VomfB1AuG5MfXObJ_9VhZvWJee_Qgg&s",
     },
     {
