@@ -79,7 +79,7 @@ Notes: ${v.notes || "—"}`;
 
   return (
     <Layout>
-      <section className="py-12" style={{ background: "var(--hero-gradient)" }}>
+      <section className="pt-36 sm:pt-44 pb-12" style={{ background: "var(--hero-gradient)" }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <h1 className="text-4xl sm:text-5xl">Book Your Appointment</h1>
           <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
