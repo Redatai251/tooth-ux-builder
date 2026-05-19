@@ -109,18 +109,18 @@ export const SERVICES: Service[] = [
     slug: "prosthodontics",
     title: "Prosthodontics",
     desc: "Full smile restoration using crowns, bridges, zirconia, and ceramic restorations for a natural and durable result.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6QmF6QW3Y8v6v5p6v5p6v5p6v5p6v5p6v5p&s",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfOiAOwctH9gl_jb3LBZB9SJBcR55fnmwKNg&s",
   },
   {
     slug: "endodontic-treatment",
     title: "Endodontic Treatment",
     desc: "Advanced root canal treatment to remove infection deep inside the tooth and save your natural smile.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIiKhKuVRoUpper8dental9root9canal9treatment&s",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_zvMpYLvVeAvgiTXRwX7Wo2l_1oltVhmymA&s",
   },
   {
     slug: "periodontic-treatment",
     title: "Periodontic Treatment",
     desc: "Specialist care for gum disease and periodontal conditions to protect your teeth and keep your gums healthy.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRperiodontal9treatment9gum9disease9dental&s",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuw4KsfjvG0pO6owHhRcbcBoHk-7okGy0MTQ&s",
   },
 ];
