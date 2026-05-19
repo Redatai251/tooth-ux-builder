@@ -64,7 +64,7 @@ function AboutPage() {
             {[
               {
                 name: "Dr. Selamawit Abraham Mesfin",
-                role: "Founder · HO, MPH, DDM · 10+ years",
+                role: "Founder · HO, MPH, DDM · 5+ years",
                 img: doctor,
                 desc: "Founder of Finan Speciality Dental Clinic, Dr. Selamawit leads a warm, specialist-driven team committed to modern, gentle and affordable dentistry for every family in Addis Ababa.",
                 icon: Stethoscope,
