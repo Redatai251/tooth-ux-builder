@@ -12,12 +12,12 @@ export const SITE = {
     line3: "5th floor",
   },
   hours: [
-    { d: "Monday", h: "8:30 AM – 5:30 PM" },
-    { d: "Tuesday", h: "8:30 AM – 5:30 PM" },
-    { d: "Wednesday", h: "8:30 AM – 5:30 PM" },
-    { d: "Thursday", h: "8:30 AM – 5:30 PM" },
-    { d: "Friday", h: "8:30 AM – 5:30 PM" },
-    { d: "Saturday", h: "8:30 AM – 5:30 PM" },
+    { d: "Monday", h: "8:30 AM – 8:00 PM" },
+    { d: "Tuesday", h: "8:30 AM – 8:00 PM" },
+    { d: "Wednesday", h: "8:30 AM – 8:00 PM" },
+    { d: "Thursday", h: "8:30 AM – 8:00 PM" },
+    { d: "Friday", h: "8:30 AM – 8:00 PM" },
+    { d: "Saturday", h: "8:30 AM – 8:00 PM" },
     { d: "Sunday", h: "8:30 AM – 2:00 PM" },
   ],
   mapEmbed:
