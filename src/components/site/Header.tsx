@@ -21,7 +21,7 @@ export function Header() {
             <img
               src={logo}
               alt="Finan Speciality Dental Clinic"
-              className="h-12 sm:h-14 w-auto max-w-[180px] sm:max-w-[220px] object-contain"
+              className="h-16 sm:h-20 w-auto object-contain"
             />
           </Link>
 
