@@ -19,7 +19,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <Layout>
-      <section className="py-14" style={{ background: "var(--hero-gradient)" }}>
+      <section className="pt-36 sm:pt-44 pb-14" style={{ background: "var(--hero-gradient)" }}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
           <h1 className="text-4xl sm:text-5xl">Get in Touch</h1>
           <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
@@ -27,7 +27,6 @@ function ContactPage() {
           </p>
         </div>
       </section>
-
       <section className="py-12 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-3 gap-5">
           <div className="rounded-2xl bg-white border border-border p-6">
@@ -56,7 +55,6 @@ function ContactPage() {
             </ul>
           </div>
         </div>
-
         <div className="mx-auto max-w-7xl px-4 sm:px-6 mt-6 flex flex-wrap gap-3 justify-center">
           <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white px-6 py-3 text-sm hover:opacity-90">
