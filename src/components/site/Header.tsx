@@ -14,14 +14,14 @@ const nav = [
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="absolute top-0 inset-x-0 z-40 pt-4 sm:pt-6">
+    <header className="absolute top-0 inset-x-0 z-40 pt-3 sm:pt-4">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex items-center gap-3 sm:gap-6 rounded-full bg-white/95 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,30,120,0.25)] ring-1 ring-black/5 pl-3 pr-3 sm:pl-5 sm:pr-2 py-2">
           <Link to="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
             <img
               src={logo}
               alt="Finan Speciality Dental Clinic"
-              className="h-20 sm:h-28 lg:h-32 w-auto"
+              className="h-10 sm:h-12 w-auto"
             />
           </Link>
 
