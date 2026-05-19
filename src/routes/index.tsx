@@ -42,7 +42,7 @@ function Index() {
             {[
               {
                 name: "Dr. Selamawit Abraham Mesfin",
-                role: "Founder · HO, MPH, DDM · 10+ years",
+                role: "Founder · HO, MPH, DDM · 5+ years",
                 img: doctor,
                 desc: "Founder of Finan Speciality Dental Clinic — leading every treatment plan with comfort, science and care.",
                 icon: Stethoscope,
@@ -71,7 +71,7 @@ function Index() {
           </div>
           <div className="mt-8 grid sm:grid-cols-3 gap-3 max-w-3xl">
             {[
-              { icon: Award, t: "10+ Years" },
+              { icon: Award, t: "5+ Years" },
               { icon: Users, t: "Specialist Team" },
               { icon: Heart, t: "Patient-First" },
             ].map((c) => (
