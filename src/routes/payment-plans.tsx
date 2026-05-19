@@ -41,7 +41,7 @@ const plans = [
 function PaymentPlansPage() {
   return (
     <Layout>
-      <section className="py-14 sm:py-20" style={{ background: "var(--hero-gradient)" }}>
+      <section className="pt-36 sm:pt-44 pb-14 sm:pb-20" style={{ background: "var(--hero-gradient)" }}>
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <p className="text-brand text-xs tracking-[0.25em] uppercase">— Payment Plans</p>
           <h1 className="mt-3 text-4xl sm:text-5xl">Care that fits your budget</h1>
@@ -51,7 +51,6 @@ function PaymentPlansPage() {
           </p>
         </div>
       </section>
-
       <section className="py-16 bg-background">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 grid md:grid-cols-2 gap-6">
           {plans.map((p) => (
@@ -72,7 +71,6 @@ function PaymentPlansPage() {
           ))}
         </div>
       </section>
-
       <section className="pb-20 bg-background">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div
