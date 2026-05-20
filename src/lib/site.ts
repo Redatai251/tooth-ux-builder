@@ -50,9 +50,8 @@ export const SITE = {
     },
   ],
   clinicPhotos: [
-    "/src/assets/clinic-interior.jpg",
-    "/src/assets/clinic-building.jpg",
-    "/src/assets/clinic-photo-3.jpg",
+    "https://raw.githubusercontent.com/Redatai251/tooth-ux-builder/main/src/assets/clinic-interior.jpg",
+    "https://raw.githubusercontent.com/Redatai251/tooth-ux-builder/main/src/assets/clinic-building.jpg",
   ],
 };
 
