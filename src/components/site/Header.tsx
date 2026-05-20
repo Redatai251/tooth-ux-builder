@@ -24,7 +24,7 @@ export function Header() {
     const newLang = lang === "en" ? "am" : "en";
     setLang(newLang);
     localStorage.setItem("lang", newLang);
-    window.location.reload(); // simple safe refresh for now
+    window.location.reload(); // simple for now
   };
 
   return (
@@ -62,18 +62,30 @@ export function Header() {
             ))}
           </nav>
 
-          {/* LANGUAGE BUTTON (NEW) */}
+          {/* 🌍 LANGUAGE TOGGLE (FLAG ICONS) */}
           <button
             onClick={toggleLang}
-            className="hidden sm:inline-flex items-center rounded-full border border-black/10 px-4 py-2 text-sm hover:bg-secondary transition ml-auto lg:ml-2"
+            className="flex items-center gap-1 sm:gap-2 rounded-full border border-black/10 px-2 sm:px-3 py-1.5 hover:bg-secondary transition"
           >
-            {lang === "en" ? "EN / አማ" : "አማ / EN"}
+            {lang === "en" ? (
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvK2zWExcm_vaQO3zHaekFC_az3LJI-60PQ&s"
+                alt="English"
+                className="w-5 h-5 rounded-full object-cover"
+              />
+            ) : (
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0hF3XDG46Iv-08qdLTWH46QfhGSIBMJhPag&s"
+                alt="Amharic"
+                className="w-5 h-5 rounded-full object-cover"
+              />
+            )}
           </button>
 
           {/* Book Button */}
           <Link
             to="/book"
-            className="hidden sm:inline-flex items-center rounded-full bg-brand-dark text-white px-5 lg:px-6 py-2.5 text-sm hover:bg-brand transition ml-2"
+            className="hidden sm:inline-flex items-center rounded-full bg-brand-dark text-white px-5 lg:px-6 py-2.5 text-sm hover:bg-brand transition"
           >
             Book Appointment
           </Link>
@@ -99,14 +111,15 @@ export function Header() {
                 onClick={() => setOpen(false)}
                 className="px-4 py-3 rounded-2xl text-sm hover:bg-secondary"
                 activeProps={{
-                  className: "px-4 py-3 rounded-2xl text-sm bg-brand-dark text-white",
+                  className:
+                    "px-4 py-3 rounded-2xl text-sm bg-brand-dark text-white",
                 }}
               >
                 {l.label}
               </Link>
             ))}
 
-            {/* Mobile Book */}
+            {/* Book */}
             <Link
               to="/book"
               onClick={() => setOpen(false)}
@@ -115,12 +128,28 @@ export function Header() {
               Book Appointment
             </Link>
 
-            {/* Mobile Language Toggle */}
+            {/* 🌍 Mobile Language Toggle */}
             <button
               onClick={toggleLang}
-              className="mt-2 inline-flex justify-center rounded-full border border-black/10 px-5 py-3 text-sm hover:bg-secondary"
+              className="mt-2 flex items-center justify-center gap-2 rounded-full border border-black/10 px-5 py-3 text-sm hover:bg-secondary"
             >
-              {lang === "en" ? "EN / አማ" : "አማ / EN"}
+              {lang === "en" ? (
+                <>
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvK2zWExcm_vaQO3zHaekFC_az3LJI-60PQ&s"
+                    className="w-5 h-5 rounded-full object-cover"
+                  />
+                  English
+                </>
+              ) : (
+                <>
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0hF3XDG46Iv-08qdLTWH46QfhGSIBMJhPag&s"
+                    className="w-5 h-5 rounded-full object-cover"
+                  />
+                  አማርኛ
+                </>
+              )}
             </button>
           </nav>
         )}
