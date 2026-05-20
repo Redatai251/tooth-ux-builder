@@ -109,7 +109,7 @@ export const SERVICES: Service[] = [
     slug: "prosthodontics",
     title: "Prosthodontics",
     desc: "Full smile restoration using crowns, bridges, zirconia, and ceramic restorations for a natural and durable result.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfOiAOwctH9gl_jb3LBZB9SJBcR55fnmwKNg&s",
+    image: "https://cdn.shopify.com/s/files/1/0942/3178/9897/files/fixed_dental-bridge-illustration.jpg?v=1745104472",
   },
   {
     slug: "periodontic-treatment",
