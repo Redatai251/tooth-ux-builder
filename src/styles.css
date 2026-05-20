@@ -1,9 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
-
 @custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -39,7 +37,6 @@
   --color-brand-dark: var(--brand-dark);
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-
 :root {
   --radius: 1rem;
   --background: oklch(1 0 0);
@@ -69,7 +66,6 @@
   --input: oklch(0.92 0.01 220);
   --ring: oklch(0.66 0.13 195);
 }
-
 @layer base {
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
@@ -78,6 +74,16 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-weight: 400;
+    top: 0 !important;
   }
   h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.01em; }
 }
+
+/* Hide Google Translate bar */
+.goog-te-banner-frame { display: none !important; }
+.skiptranslate { display: none !important; }
+.goog-te-balloon-frame { display: none !important; }
+.goog-tooltip { display: none !important; }
+.goog-tooltip:after { display: none !important; }
+.goog-tooltip-content { display: none !important; }
+#goog-gt-tt { display: none !important; }
