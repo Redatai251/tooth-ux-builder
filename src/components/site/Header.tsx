@@ -32,7 +32,11 @@ export function Header() {
         <div className="flex items-center gap-3 sm:gap-6 rounded-full bg-white/95 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,30,120,0.25)] ring-1 ring-black/5 pl-3 pr-3 sm:pl-5 sm:pr-2 py-2">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
+          <Link
+            to="/"
+            className="flex items-center shrink-0"
+            onClick={() => setOpen(false)}
+          >
             <img
               src={logo}
               alt="Finan Speciality Dental Clinic"
@@ -48,10 +52,6 @@ export function Header() {
                 to={l.to}
                 activeOptions={{ exact: l.to === "/" }}
                 className="inline-flex items-center gap-1 px-4 py-2 text-[15px] text-foreground/70 hover:text-foreground transition"
-                activeProps={{
-                  className:
-                    "inline-flex items-center gap-1 px-4 py-2 text-[15px] text-foreground font-medium",
-                }}
               >
                 {l.label}
                 {l.label === "Services" || l.label === "Payment Plans" ? (
@@ -67,33 +67,15 @@ export function Header() {
             className="flex items-center gap-2 rounded-full border border-black/10 px-3 sm:px-4 py-2 text-xs sm:text-sm hover:bg-secondary transition"
           >
             {/* English */}
-            <span
-              className={`flex items-center gap-1 ${
-                lang === "en" ? "font-semibold" : "opacity-50"
-              }`}
-            >
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvK2zWExcm_vaQO3zHaekFC_az3LJI-60PQ&s"
-                className="w-4 h-4 rounded-full object-cover"
-                alt="English"
-              />
-              ENG
+            <span className={lang === "en" ? "font-semibold" : "opacity-50"}>
+              🇺🇸 ENG
             </span>
 
             <span className="text-black/30">|</span>
 
             {/* Amharic */}
-            <span
-              className={`flex items-center gap-1 ${
-                lang === "am" ? "font-semibold" : "opacity-50"
-              }`}
-            >
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0hF3XDG46Iv-08qdLTWH46QfhGSIBMJhPag&s"
-                className="w-4 h-4 rounded-full object-cover"
-                alt="Amharic"
-              />
-              አማርኛ
+            <span className={lang === "am" ? "font-semibold" : "opacity-50"}>
+              🇪🇹 አማርኛ
             </span>
           </button>
 
@@ -125,10 +107,6 @@ export function Header() {
                 activeOptions={{ exact: l.to === "/" }}
                 onClick={() => setOpen(false)}
                 className="px-4 py-3 rounded-2xl text-sm hover:bg-secondary"
-                activeProps={{
-                  className:
-                    "px-4 py-3 rounded-2xl text-sm bg-brand-dark text-white",
-                }}
               >
                 {l.label}
               </Link>
@@ -143,7 +121,7 @@ export function Header() {
               Book Appointment
             </Link>
 
-            {/* Mobile Language */}
+            {/* Mobile Language Switch */}
             <button
               onClick={toggleLang}
               className="mt-2 flex items-center justify-center gap-2 rounded-full border border-black/10 px-5 py-3 text-sm hover:bg-secondary"
