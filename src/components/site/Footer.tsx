@@ -45,20 +45,11 @@ export function Footer() {
               >
                 Book Appointment <ArrowRight className="size-4" />
               </Link>
-
               <div className="mt-6">
                 <p className="text-sm">Follow us</p>
                 <div className="mt-3 flex flex-wrap gap-3">
                   {SITE.socials.map((s) => (
-                    
-                      key={s.name}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={s.name}
-                      title={s.name}
-                      className="size-11 rounded-full overflow-hidden bg-white border border-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition grid place-items-center"
-                    >
+                    <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.name} title={s.name} className="size-11 rounded-full overflow-hidden bg-white border border-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition grid place-items-center">
                       <img src={s.icon} alt={s.name} className="w-full h-full object-cover" loading="lazy" />
                     </a>
                   ))}
@@ -110,26 +101,12 @@ export function Footer() {
           <div className="flex flex-col items-end gap-1">
             <p>
               Website Developed By{" "}
-              
-                href="https://bloomuptech.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-brand hover:underline"
-              >
+              <a href="https://bloomuptech.com/" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
                 BloomUp Technologies
               </a>
             </p>
-            
-              href="https://www.linkedin.com/in/abenezer-zewedu-5421923a5/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-brand transition"
-            >
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrP14K7jUi_ydDYy-S-YsSt7KbAS8DrbHvzA&s"
-                alt="LinkedIn"
-                className="size-4 rounded-sm object-cover"
-              />
+            <a href="https://www.linkedin.com/in/abenezer-zewedu-5421923a5/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-brand transition">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrP14K7jUi_ydDYy-S-YsSt7KbAS8DrbHvzA&s" alt="LinkedIn" className="size-4 rounded-sm object-cover" />
               <span>LinkedIn</span>
             </a>
           </div>
