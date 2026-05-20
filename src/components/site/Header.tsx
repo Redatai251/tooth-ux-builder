@@ -13,18 +13,17 @@ const nav = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [lang, setLang] = useState("en");
+  const [lang, setLang] = useState<"en" | "am">("en");
 
   useEffect(() => {
-    const saved = localStorage.getItem("lang");
+    const saved = localStorage.getItem("lang") as "en" | "am" | null;
     if (saved) setLang(saved);
   }, []);
 
   const toggleLang = () => {
-    const newLang = lang === "en" ? "am" : "en";
+    const newLang: "en" | "am" = lang === "en" ? "am" : "en";
     setLang(newLang);
     localStorage.setItem("lang", newLang);
-    window.location.reload(); // simple version for now
   };
 
   return (
@@ -62,7 +61,7 @@ export function Header() {
             ))}
           </nav>
 
-          {/* 🌍 LANGUAGE SWITCH (SIDE BY SIDE ENG / AM) */}
+          {/* 🌍 LANGUAGE SWITCH */}
           <button
             onClick={toggleLang}
             className="flex items-center gap-2 rounded-full border border-black/10 px-3 sm:px-4 py-2 text-xs sm:text-sm hover:bg-secondary transition"
@@ -144,39 +143,19 @@ export function Header() {
               Book Appointment
             </Link>
 
-            {/* Mobile Language Switch */}
+            {/* Mobile Language */}
             <button
               onClick={toggleLang}
               className="mt-2 flex items-center justify-center gap-2 rounded-full border border-black/10 px-5 py-3 text-sm hover:bg-secondary"
             >
-              {/* English */}
-              <span
-                className={`flex items-center gap-1 ${
-                  lang === "en" ? "font-semibold" : "opacity-50"
-                }`}
-              >
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvK2zWExcm_vaQO3zHaekFC_az3LJI-60PQ&s"
-                  className="w-5 h-5 rounded-full object-cover"
-                  alt="English"
-                />
-                ENG
+              <span className={lang === "en" ? "font-semibold" : "opacity-50"}>
+                🇺🇸 ENG
               </span>
 
               <span className="text-black/30">|</span>
 
-              {/* Amharic */}
-              <span
-                className={`flex items-center gap-1 ${
-                  lang === "am" ? "font-semibold" : "opacity-50"
-                }`}
-              >
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0hF3XDG46Iv-08qdLTWH46QfhGSIBMJhPag&s"
-                  className="w-5 h-5 rounded-full object-cover"
-                  alt="Amharic"
-                />
-                አማርኛ
+              <span className={lang === "am" ? "font-semibold" : "opacity-50"}>
+                🇪🇹 አማርኛ
               </span>
             </button>
           </nav>
