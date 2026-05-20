@@ -86,8 +86,8 @@ export function Header() {
               ))}
             </nav>
 
-            {/* Language Switch — always shows ENG | አማርኛ */}
-            <div className="flex items-center rounded-full border border-black/10 overflow-hidden text-xs sm:text-sm">
+            {/* Language Switch */}
+            <div className="notranslate flex items-center rounded-full border border-black/10 overflow-hidden text-xs sm:text-sm">
               <button
                 onClick={switchToEnglish}
                 className={`flex items-center gap-1.5 px-3 py-2 transition ${
@@ -95,9 +95,9 @@ export function Header() {
                 }`}
               >
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvK2zWExcm_vaQO3zHaekFC_az3LJI-60PQ&s" className="w-4 h-4 rounded-full object-cover" alt="English" />
-                ENG
+                <span className="notranslate">ENG</span>
               </button>
-              <span className="text-black/20 text-xs">|</span>
+              <span className="text-black/20 text-xs notranslate">|</span>
               <button
                 onClick={switchToAmharic}
                 className={`flex items-center gap-1.5 px-3 py-2 transition ${
@@ -105,7 +105,7 @@ export function Header() {
                 }`}
               >
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0hF3XDG46Iv-08qdLTWH46QfhGSIBMJhPag&s" className="w-4 h-4 rounded-full object-cover" alt="Amharic" />
-                አማርኛ
+                <span className="notranslate">አማርኛ</span>
               </button>
             </div>
 
@@ -146,23 +146,23 @@ export function Header() {
               >
                 Book Appointment
               </Link>
-              <div className="mt-2 flex items-center justify-center rounded-full border border-black/10 overflow-hidden text-sm">
+              <div className="notranslate mt-2 flex items-center justify-center rounded-full border border-black/10 overflow-hidden text-sm">
                 <button
                   onClick={switchToEnglish}
                   className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-3 transition ${
                     lang === "en" ? "bg-brand-dark text-white font-semibold" : "hover:bg-secondary"
                   }`}
                 >
-                  🇺🇸 ENG
+                  🇺🇸 <span className="notranslate">ENG</span>
                 </button>
-                <span className="text-black/20 text-xs">|</span>
+                <span className="text-black/20 text-xs notranslate">|</span>
                 <button
                   onClick={switchToAmharic}
                   className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-3 transition ${
                     lang === "am" ? "bg-brand-dark text-white font-semibold" : "hover:bg-secondary"
                   }`}
                 >
-                  🇪🇹 አማርኛ
+                  🇪🇹 <span className="notranslate">አማርኛ</span>
                 </button>
               </div>
             </nav>
