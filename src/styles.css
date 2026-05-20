@@ -87,3 +87,13 @@
 .goog-tooltip:after { display: none !important; }
 .goog-tooltip-content { display: none !important; }
 #goog-gt-tt { display: none !important; }
+
+/* Hide Google Translate icon and spinner */
+.goog-te-gadget-icon { display: none !important; }
+.goog-te-gadget-simple { border: none !important; background: none !important; }
+.goog-te-menu-value span { display: none !important; }
+.goog-te-spinner { display: none !important; }
+.goog-te-gadget { display: none !important; }
+#goog-gt- { display: none !important; }
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf { display: none !important; }
+.VIpgJd-ZVi9od-aZ2wEe { display: none !important; }
