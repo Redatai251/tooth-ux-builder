@@ -26,7 +26,7 @@ function Index() {
   return (
     <Layout>
       <Hero />
-      <ServicesGrid limit={6} />
+      <ServicesGrid />
 
       {/* Our Doctors */}
       <section className="py-16 sm:py-20 bg-secondary/30">
