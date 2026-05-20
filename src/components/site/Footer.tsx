@@ -76,13 +76,7 @@ export function Footer() {
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground px-2">
           <p>Copyright © 2026 {SITE.name}. All rights reserved.</p>
-          <div className="flex flex-col items-end gap-1">
-            <p>Website Developed By{" "}<a href="https://bloomuptech.com/" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">BloomUp Technologies</a></p>
-            <a href="https://www.linkedin.com/in/abenezer-zewedu-5421923a5/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-brand transition">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrP14K7jUi_ydDYy-S-YsSt7KbAS8DrbHvzA&s" alt="LinkedIn" className="size-4 rounded-sm object-cover" />
-              <span>LinkedIn</span>
-            </a>
-          </div>
+          <p>Website Developed By{" "}<a href="https://bloomuptech.com/" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">BloomUp Technologies</a></p>
         </div>
       </div>
     </footer>
