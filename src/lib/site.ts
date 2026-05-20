@@ -50,8 +50,9 @@ export const SITE = {
     },
   ],
   clinicPhotos: [
-    "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG0hRR_yD-CNNjjTslRV4f5TlqjqSyG79PARNBywulPy2btsoVgVuRY7k41QrCDyAQyLvWQmtDsmbJUF7UEji1MRQQ5lJRyhzHv_vc_mbpXdvnX4Q9g6I30wufgSgygdgvq1ETwFtgkU3gD=s1360-w1360-h1020-rw",
-    "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGtbvmUAtCoxFXrvovdb5RJ5ZIQ7hwKNVfsONWhXYpSf3pkc3UDgfngw3KNcbLa3P3THu401gV2rWHTT8SL1JEX50c7e7mxFDwgnRP02vctvNexUVzdmPcMKRs-BS10vb3HS8_FLtA3LG0=s1360-w1360-h1020-rw",
+    "/src/assets/clinic-interior.jpg",
+    "/src/assets/clinic-building.jpg",
+    "/src/assets/clinic-photo-3.jpg",
   ],
 };
 
