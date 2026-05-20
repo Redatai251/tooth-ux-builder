@@ -24,7 +24,7 @@ export function Header() {
     const newLang = lang === "en" ? "am" : "en";
     setLang(newLang);
     localStorage.setItem("lang", newLang);
-    window.location.reload(); // simple for now
+    window.location.reload(); // simple version for now
   };
 
   return (
@@ -62,24 +62,40 @@ export function Header() {
             ))}
           </nav>
 
-          {/* 🌍 LANGUAGE TOGGLE (FLAG ICONS) */}
+          {/* 🌍 LANGUAGE SWITCH (SIDE BY SIDE ENG / AM) */}
           <button
             onClick={toggleLang}
-            className="flex items-center gap-1 sm:gap-2 rounded-full border border-black/10 px-2 sm:px-3 py-1.5 hover:bg-secondary transition"
+            className="flex items-center gap-2 rounded-full border border-black/10 px-3 sm:px-4 py-2 text-xs sm:text-sm hover:bg-secondary transition"
           >
-            {lang === "en" ? (
+            {/* English */}
+            <span
+              className={`flex items-center gap-1 ${
+                lang === "en" ? "font-semibold" : "opacity-50"
+              }`}
+            >
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvK2zWExcm_vaQO3zHaekFC_az3LJI-60PQ&s"
+                className="w-4 h-4 rounded-full object-cover"
                 alt="English"
-                className="w-5 h-5 rounded-full object-cover"
               />
-            ) : (
+              ENG
+            </span>
+
+            <span className="text-black/30">|</span>
+
+            {/* Amharic */}
+            <span
+              className={`flex items-center gap-1 ${
+                lang === "am" ? "font-semibold" : "opacity-50"
+              }`}
+            >
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0hF3XDG46Iv-08qdLTWH46QfhGSIBMJhPag&s"
+                className="w-4 h-4 rounded-full object-cover"
                 alt="Amharic"
-                className="w-5 h-5 rounded-full object-cover"
               />
-            )}
+              አማርኛ
+            </span>
           </button>
 
           {/* Book Button */}
@@ -128,28 +144,40 @@ export function Header() {
               Book Appointment
             </Link>
 
-            {/* 🌍 Mobile Language Toggle */}
+            {/* Mobile Language Switch */}
             <button
               onClick={toggleLang}
               className="mt-2 flex items-center justify-center gap-2 rounded-full border border-black/10 px-5 py-3 text-sm hover:bg-secondary"
             >
-              {lang === "en" ? (
-                <>
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvK2zWExcm_vaQO3zHaekFC_az3LJI-60PQ&s"
-                    className="w-5 h-5 rounded-full object-cover"
-                  />
-                  English
-                </>
-              ) : (
-                <>
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0hF3XDG46Iv-08qdLTWH46QfhGSIBMJhPag&s"
-                    className="w-5 h-5 rounded-full object-cover"
-                  />
-                  አማርኛ
-                </>
-              )}
+              {/* English */}
+              <span
+                className={`flex items-center gap-1 ${
+                  lang === "en" ? "font-semibold" : "opacity-50"
+                }`}
+              >
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvK2zWExcm_vaQO3zHaekFC_az3LJI-60PQ&s"
+                  className="w-5 h-5 rounded-full object-cover"
+                  alt="English"
+                />
+                ENG
+              </span>
+
+              <span className="text-black/30">|</span>
+
+              {/* Amharic */}
+              <span
+                className={`flex items-center gap-1 ${
+                  lang === "am" ? "font-semibold" : "opacity-50"
+                }`}
+              >
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0hF3XDG46Iv-08qdLTWH46QfhGSIBMJhPag&s"
+                  className="w-5 h-5 rounded-full object-cover"
+                  alt="Amharic"
+                />
+                አማርኛ
+              </span>
             </button>
           </nav>
         )}
