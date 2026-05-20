@@ -16,7 +16,6 @@ export function Footer() {
   return (
     <footer className="px-3 sm:px-6 pb-6 pt-16 bg-gradient-to-b from-brand-soft/40 to-secondary/40">
       <div className="mx-auto max-w-7xl">
-        {/* Free consultation CTA */}
         <div
           className="rounded-3xl p-8 sm:p-12 text-center text-white mb-10 shadow-lg"
           style={{ background: "var(--teal-gradient)" }}
@@ -35,7 +34,6 @@ export function Footer() {
 
         <div className="rounded-3xl bg-white shadow-sm border border-border p-8 sm:p-10">
           <div className="grid lg:grid-cols-12 gap-10">
-            {/* Brand + book button + socials */}
             <div className="lg:col-span-4">
               <img src={logo} alt={SITE.name} className="h-20 sm:h-24 w-auto" />
               <p className="mt-4 text-sm text-muted-foreground max-w-xs">
@@ -68,7 +66,6 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Pages */}
             <div className="lg:col-span-2">
               <h4 className="text-sm">Pages</h4>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
@@ -80,7 +77,6 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Hours */}
             <div className="lg:col-span-3">
               <h4 className="text-sm flex items-center gap-2"><Clock className="size-4 text-brand" /> Opening Hours</h4>
               <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
@@ -92,7 +88,6 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Contact */}
             <div className="lg:col-span-3">
               <h4 className="text-sm flex items-center gap-2"><Phone className="size-4 text-brand" /> Contact</h4>
               <ul className="mt-4 space-y-1.5 text-sm text-muted-foreground">
@@ -112,7 +107,7 @@ export function Footer() {
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground px-2">
           <p>Copyright © 2026 {SITE.name}. All rights reserved.</p>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col items-end gap-1">
             <p>
               Website Developed By{" "}
               
@@ -128,15 +123,14 @@ export function Footer() {
               href="https://www.linkedin.com/in/abenezer-zewedu-5421923a5/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              title="LinkedIn"
-              className="size-7 rounded-full overflow-hidden border border-border shadow-sm hover:shadow-md hover:-translate-y-0.5 transition grid place-items-center"
+              className="flex items-center gap-1.5 hover:text-brand transition"
             >
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrP14K7jUi_ydDYy-S-YsSt7KbAS8DrbHvzA&s"
                 alt="LinkedIn"
-                className="w-full h-full object-cover"
+                className="size-4 rounded-sm object-cover"
               />
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>
