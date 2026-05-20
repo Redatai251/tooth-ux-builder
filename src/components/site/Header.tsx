@@ -23,20 +23,14 @@ export function Header() {
   const [lang, setLang] = useState<"en" | "am">("en");
 
   useEffect(() => {
-    // Load Google Translate script
     const script = document.createElement("script");
-    script.src =
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     script.async = true;
     document.body.appendChild(script);
 
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          includedLanguages: "en,am",
-          autoDisplay: false,
-        },
+        { pageLanguage: "en", includedLanguages: "en,am", autoDisplay: false },
         "google_translate_element"
       );
     };
@@ -44,9 +38,7 @@ export function Header() {
 
   const switchToAmharic = () => {
     setLang("am");
-    const select = document.querySelector(
-      ".goog-te-combo"
-    ) as HTMLSelectElement;
+    const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
     if (select) {
       select.value = "am";
       select.dispatchEvent(new Event("change"));
@@ -55,23 +47,14 @@ export function Header() {
 
   const switchToEnglish = () => {
     setLang("en");
-    const frame = document.querySelector(
-      ".skiptranslate iframe"
-    ) as HTMLIFrameElement;
-    if (frame) {
-      const innerDoc = frame.contentDocument || frame.contentWindow?.document;
-      const restoreBtn = innerDoc?.querySelector(
-        "#:0.restore"
-      ) as HTMLElement;
-      if (restoreBtn) restoreBtn.click();
-    }
-    // fallback
+    localStorage.removeItem("lang");
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
     window.location.reload();
   };
 
   return (
     <>
-      {/* Hidden Google Translate widget */}
       <div id="google_translate_element" style={{ display: "none" }} />
 
       <header className="absolute top-0 inset-x-0 z-40 pt-3 sm:pt-4">
