@@ -1,6 +1,58 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { SERVICES } from "@/lib/site";
+import { useEffect, useRef, useState } from "react";
+
+function AnimatedCard({ s, i }: { s: typeof SERVICES[0]; i: number }) {
+  const ref = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setVisible(true), i * 120);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [i]);
+
+  return (
+    <article
+      ref={ref}
+      className="group rounded-2xl bg-white border border-border overflow-hidden flex flex-col hover:shadow-xl transition-all duration-700"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0px)" : "translateY(50px)",
+        transition: "opacity 0.7s ease, transform 0.7s ease",
+      }}
+    >
+      <div className="aspect-[16/10] overflow-hidden bg-secondary">
+        <img
+          src={s.image}
+          alt={s.title}
+          loading="lazy"
+          className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+        />
+      </div>
+      <div className="p-5 flex-1 flex flex-col">
+        <h3 className="text-lg">{s.title}</h3>
+        <p className="mt-2 text-sm text-muted-foreground flex-1">{s.desc}</p>
+        <Link
+          to="/book"
+          search={{ service: s.slug }}
+          className="mt-4 inline-flex items-center gap-1.5 self-start rounded-full bg-brand text-white px-4 py-2 text-xs hover:opacity-90 hover:scale-105 transition-all"
+        >
+          Book Appointment <ArrowUpRight className="size-3.5" />
+        </Link>
+      </div>
+    </article>
+  );
+}
 
 export function ServicesGrid() {
   return (
@@ -14,50 +66,10 @@ export function ServicesGrid() {
         </div>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {SERVICES.map((s, i) => (
-            <article
-              key={s.slug}
-              className="group rounded-2xl bg-white border border-border overflow-hidden flex flex-col hover:shadow-md transition-all duration-500 hover:-translate-y-1"
-              style={{
-                opacity: 0,
-                animation: `fadeSlideUp 0.5s ease forwards`,
-                animationDelay: `${i * 0.1}s`,
-              }}
-            >
-              <div className="aspect-[16/10] overflow-hidden bg-secondary">
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                />
-              </div>
-              <div className="p-5 flex-1 flex flex-col">
-                <h3 className="text-lg">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground flex-1">{s.desc}</p>
-                <Link
-                  to="/book"
-                  search={{ service: s.slug }}
-                  className="mt-4 inline-flex items-center gap-1.5 self-start rounded-full bg-brand text-white px-4 py-2 text-xs hover:opacity-90"
-                >
-                  Book Appointment <ArrowUpRight className="size-3.5" />
-                </Link>
-              </div>
-            </article>
+            <AnimatedCard key={s.slug} s={s} i={i} />
           ))}
         </div>
       </div>
-      <style>{`
-        @keyframes fadeSlideUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }
