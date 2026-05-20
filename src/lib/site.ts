@@ -1,67 +1,3 @@
-export const SITE = {
-  name: "Finan Speciality Dental Clinic",
-  shortName: "Finan Dental",
-  domain: "https://tooth-ux-builder.lovable.app",
-  phones: ["+251 91 105 5655", "+251 94 803 3831", "+251 98 447 0444"],
-  whatsapp: "251911055655",
-  telegramUser: "abenezerzewedu",
-  email: "info@finandental.com",
-  address: {
-    line1: "Abrams Building, Cameroon St, Addis Ababa",
-    line2: "Near Bole Medhanialem Church",
-    line3: "5th floor",
-  },
-  hours: [
-    { d: "Monday", h: "8:30 AM – 8:00 PM" },
-    { d: "Tuesday", h: "8:30 AM – 8:00 PM" },
-    { d: "Wednesday", h: "8:30 AM – 8:00 PM" },
-    { d: "Thursday", h: "8:30 AM – 8:00 PM" },
-    { d: "Friday", h: "8:30 AM – 8:00 PM" },
-    { d: "Saturday", h: "8:30 AM – 8:00 PM" },
-    { d: "Sunday", h: "8:30 AM – 2:00 PM" },
-  ],
-  mapEmbed:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.7315076907453!2d38.78735057352809!3d8.996542089499247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85c5636c2e6b%3A0x4273780dbb8b7952!2sFinan%20Speciality%20Dental%20Clinic!5e1!3m2!1sen!2set!4v1778861799430!5m2!1sen!2set",
-  socials: [
-    {
-      name: "TikTok",
-      href: "https://www.tiktok.com/@finanspecialitydentalcl1/",
-      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO-2p_JtJE4Dqjg_XYiR1F3oFo-hvfU3yXng&s",
-    },
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/profile.php?id=61557142123469",
-      icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/960px-2023_Facebook_icon.svg.png",
-    },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/finanspecialitydentalclinic?igsh=MXV4MDgxcnh5dHJxag==",
-      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJZq17XNmKJNrTtEeo8rQIOLgoziEgQWnP2Q&s",
-    },
-    {
-      name: "Telegram",
-      href: "tel:+251911055655",
-      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3cHB6VomfB1AuG5MfXObJ_9VhZvWJee_Qgg&s",
-    },
-    {
-      name: "WhatsApp",
-      href: "https://wa.me/251911055655",
-      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTAESYvvqOVbKqYxwK3HEzYNESOgCeDaaFlQ&s",
-    },
-  ],
-  clinicPhotos: [
-    "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG0hRR_yD-CNNjjTslRV4f5TlqjqSyG79PARNBywulPy2btsoVgVuRY7k41QrCDyAQyLvWQmtDsmbJUF7UEji1MRQQ5lJRyhzHv_vc_mbpXdvnX4Q9g6I30wufgSgygdgvq1ETwFtgkU3gD=s1360-w1360-h1020-rw",
-    "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGtbvmUAtCoxFXrvovdb5RJ5ZIQ7hwKNVfsONWhXYpSf3pkc3UDgfngw3KNcbLa3P3THu401gV2rWHTT8SL1JEX50c7e7mxFDwgnRP02vctvNexUVzdmPcMKRs-BS10vb3HS8_FLtA3LG0=s1360-w1360-h1020-rw",
-  ],
-};
-
-export type Service = {
-  slug: string;
-  title: string;
-  desc: string;
-  image: string;
-};
-
 export const SERVICES: Service[] = [
   {
     slug: "preventive-care",
@@ -82,9 +18,9 @@ export const SERVICES: Service[] = [
     image: "https://www.nycdentalimplantscenter.com/wp-content/uploads/2024/08/front-tooth-dental-implants-before-after-images-16.jpg",
   },
   {
-    slug: "braces",
-    title: "Braces",
-    desc: "Metal and ceramic braces fitted by specialists to gently straighten teeth and correct your bite.",
+    slug: "orthodontic-treatment",
+    title: "Orthodontic Treatment",
+    desc: "Metal and ceramic braces and clear aligners fitted by specialists to gently straighten teeth and correct your bite.",
     image: "https://cdicsmiles.com/wp-content/uploads/2021/12/Orthodontic-Braces-Treatment.jpg",
   },
   {
@@ -100,22 +36,16 @@ export const SERVICES: Service[] = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGr07WY9wSnJLsvbCKiub_bUH5Z3mRMbiKRQ&s",
   },
   {
-    slug: "root-canal-therapy",
-    title: "Root Canal Therapy",
-    desc: "Pain-free endodontic treatment to save your natural tooth and stop infection.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvIhiC-4H6n-4yMXhlGPMnpv1w0awwZsCk9A&s",
+    slug: "endodontic-treatment",
+    title: "Endodontic Treatment (Root Canal)",
+    desc: "Advanced root canal treatment to remove infection deep inside the tooth and save your natural smile — pain-free and precise.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_zvMpYLvVeAvgiTXRwX7Wo2l_1oltVhmymA&s",
   },
   {
     slug: "prosthodontics",
     title: "Prosthodontics",
     desc: "Full smile restoration using crowns, bridges, zirconia, and ceramic restorations for a natural and durable result.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfOiAOwctH9gl_jb3LBZB9SJBcR55fnmwKNg&s",
-  },
-  {
-    slug: "endodontic-treatment",
-    title: "Endodontic Treatment",
-    desc: "Advanced root canal treatment to remove infection deep inside the tooth and save your natural smile.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_zvMpYLvVeAvgiTXRwX7Wo2l_1oltVhmymA&s",
   },
   {
     slug: "periodontic-treatment",
