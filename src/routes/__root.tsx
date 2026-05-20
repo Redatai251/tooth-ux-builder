@@ -7,9 +7,6 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-
-import { LangProvider } from "@/lib/lang-context";
-
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -39,7 +36,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -59,7 +55,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          <a
+          
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
@@ -79,8 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Finan Speciality Dental Clinic" },
       {
         name: "description",
-        content:
-          "Modern, gentle dental care for the whole family in Addis Ababa.",
+        content: "Modern, gentle dental care for the whole family in Addis Ababa.",
       },
       { property: "og:site_name", content: "Finan Speciality Dental Clinic" },
       { property: "og:type", content: "website" },
@@ -115,13 +110,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
     <QueryClientProvider client={queryClient}>
-      {/* 🌍 GLOBAL LANGUAGE SYSTEM */}
-      <LangProvider>
-        <Outlet />
-      </LangProvider>
+      <Outlet />
     </QueryClientProvider>
   );
 }
