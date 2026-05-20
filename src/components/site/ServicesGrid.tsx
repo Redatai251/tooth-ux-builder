@@ -13,10 +13,15 @@ export function ServicesGrid() {
           </h2>
         </div>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {SERVICES.map((s) => (
+          {SERVICES.map((s, i) => (
             <article
               key={s.slug}
-              className="group rounded-2xl bg-white border border-border overflow-hidden flex flex-col hover:shadow-md transition"
+              className="group rounded-2xl bg-white border border-border overflow-hidden flex flex-col hover:shadow-md transition-all duration-500 hover:-translate-y-1"
+              style={{
+                opacity: 0,
+                animation: `fadeSlideUp 0.5s ease forwards`,
+                animationDelay: `${i * 0.1}s`,
+              }}
             >
               <div className="aspect-[16/10] overflow-hidden bg-secondary">
                 <img
@@ -41,6 +46,18 @@ export function ServicesGrid() {
           ))}
         </div>
       </div>
+      <style>{`
+        @keyframes fadeSlideUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }
