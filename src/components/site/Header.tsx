@@ -1,115 +1,137 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, Volume2, VolumeX } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import logo from "@/assets/7291deb9-6f00-4e49-bee1-f92bea4d0a39-removebg-preview.png";
 
-export function Hero() {
-  const [muted, setMuted] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+const nav = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About Us" },
+  { to: "/services", label: "Services" },
+  { to: "/payment-plans", label: "Payment Plans" },
+  { to: "/contact", label: "Contact Us" },
+];
+
+declare global {
+  interface Window {
+    googleTranslateElementInit: () => void;
+    google: any;
+  }
+}
+
+export function Header() {
+  const [open, setOpen] = useState(false);
+  const [lang, setLang] = useState<"en" | "am">("en");
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          video.play();
-        } else {
-          video.pause();
-          setMuted(true);
-          video.muted = true;
-        }
-      },
-      { threshold: 0.5 }
-    );
-    observer.observe(video);
-    return () => observer.disconnect();
+    const script = document.createElement("script");
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.async = true;
+    document.body.appendChild(script);
+
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        { pageLanguage: "en", includedLanguages: "en,am", autoDisplay: false },
+        "google_translate_element"
+      );
+    };
   }, []);
 
-  const toggleMute = () => {
-    const video = videoRef.current;
-    if (!video) return;
-    video.muted = !video.muted;
-    setMuted(video.muted);
+  const switchToAmharic = () => {
+    setLang("am");
+    const select = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+    if (select) {
+      select.value = "am";
+      select.dispatchEvent(new Event("change"));
+    }
+  };
+
+  const switchToEnglish = () => {
+    setLang("en");
+    localStorage.removeItem("lang");
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
+    window.location.reload();
   };
 
   return (
-    <section className="relative overflow-hidden bg-brand-dark text-white">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(80% 60% at 50% 0%, rgba(110,231,255,0.30) 0%, transparent 60%), linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 40%)",
-        }}
-      />
-      <div
-        className="absolute inset-0 opacity-[0.07] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-36 sm:pt-44 pb-16 sm:pb-24">
-        <div className="text-center max-w-4xl mx-auto">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur px-4 py-1.5 text-xs border border-white/20">
-            <Sparkles className="size-3.5 text-brand-glow" />
-            <span className="text-white/90">The #1 Speciality Dental Clinic in Addis Ababa</span>
-          </span>
-          <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
-            Transforming smiles{" "}
-            <span className="text-brand-glow">with expert care</span>
-          </h1>
-          <p className="mt-6 text-base sm:text-lg text-white/75 max-w-2xl mx-auto">
-            Gentle, advanced and affordable dental care for the whole family at
-            Finan Speciality Dental Clinic — Addis Ababa.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3 justify-center">
-            <Link
-              to="/book"
-              className="inline-flex items-center gap-2 rounded-full bg-brand text-white px-7 py-3.5 text-sm hover:bg-brand-glow hover:text-brand-dark transition"
-            >
-              Book Appointment <ArrowRight className="size-4" />
+    <>
+      <div id="google_translate_element" style={{ display: "none" }} />
+      <header className="absolute top-0 inset-x-0 z-40 pt-3 sm:pt-4">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="flex items-center gap-3 sm:gap-6 rounded-full bg-white/95 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,30,120,0.25)] ring-1 ring-black/5 pl-3 pr-3 sm:pl-5 sm:pr-2 py-2">
+            <Link to="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
+              <img src={logo} alt="Finan Speciality Dental Clinic" className="h-12 sm:h-14 w-auto" />
             </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur text-white px-7 py-3.5 text-sm border border-white/20 hover:bg-white/20"
-            >
-              Our Services
+            <nav className="hidden lg:flex items-center gap-1 ml-auto">
+              {nav.map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  activeOptions={{ exact: l.to === "/" }}
+                  className="inline-flex items-center gap-1 px-4 py-2 text-[15px] text-foreground/70 hover:text-foreground transition"
+                  activeProps={{ className: "inline-flex items-center gap-1 px-4 py-2 text-[15px] text-foreground font-medium" }}
+                >
+                  {l.label}
+                  {l.label === "Services" || l.label === "Payment Plans" ? (
+                    <ChevronDown className="size-3.5 opacity-50" />
+                  ) : null}
+                </Link>
+              ))}
+            </nav>
+            <div className="notranslate flex items-center rounded-full border border-black/10 overflow-hidden text-xs sm:text-sm">
+              <button
+                onClick={switchToEnglish}
+                className={`flex items-center gap-1.5 px-3 py-2 transition ${lang === "en" ? "bg-brand-dark text-white font-semibold" : "text-foreground hover:bg-secondary"}`}
+              >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNvK2zWExcm_vaQO3zHaekFC_az3LJI-60PQ&s" className="w-4 h-4 rounded-full object-cover" alt="English" />
+                <span className="notranslate">ENG</span>
+              </button>
+              <span className="text-black/20 text-xs notranslate">|</span>
+              <button
+                onClick={switchToAmharic}
+                className={`flex items-center gap-1.5 px-3 py-2 transition ${lang === "am" ? "bg-brand-dark text-white font-semibold" : "text-foreground hover:bg-secondary"}`}
+              >
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0hF3XDG46Iv-08qdLTWH46QfhGSIBMJhPag&s" className="w-4 h-4 rounded-full object-cover" alt="Amharic" />
+                <span className="notranslate">አማርኛ</span>
+              </button>
+            </div>
+            <Link to="/book" className="hidden sm:inline-flex items-center rounded-full bg-brand-dark text-white px-5 lg:px-6 py-2.5 text-sm hover:bg-brand transition">
+              Book Appointment
             </Link>
-          </div>
-        </div>
-
-        <div className="mt-14 sm:mt-20 mx-auto max-w-6xl">
-          <div className="relative rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden ring-1 ring-white/15 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)] bg-black h-[70vh] sm:h-[85vh] min-h-[420px]">
-            <video
-              ref={videoRef}
-              src="/clinic-hero.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              className="w-full h-full object-cover"
-            />
-
-            {/* Big visible sound button */}
-            <button
-              onClick={toggleMute}
-              className="absolute bottom-5 right-5 flex items-center gap-2 rounded-full bg-white text-brand-dark font-semibold px-5 py-3 text-sm shadow-lg hover:scale-105 transition-all"
-            >
-              {muted ? (
-                <>
-                  <VolumeX className="size-5" /> Tap for Sound
-                </>
-              ) : (
-                <>
-                  <Volume2 className="size-5" /> Mute
-                </>
-              )}
+            <button className="lg:hidden ml-auto sm:ml-0 p-2 rounded-full hover:bg-secondary" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
           </div>
+          {open && (
+            <nav className="lg:hidden mt-2 rounded-3xl bg-white shadow-xl ring-1 ring-black/5 p-3 flex flex-col gap-1">
+              {nav.map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  activeOptions={{ exact: l.to === "/" }}
+                  onClick={() => setOpen(false)}
+                  className="px-4 py-3 rounded-2xl text-sm hover:bg-secondary"
+                  activeProps={{ className: "px-4 py-3 rounded-2xl text-sm bg-brand-dark text-white" }}
+                >
+                  {l.label}
+                </Link>
+              ))}
+              <Link to="/book" onClick={() => setOpen(false)} className="mt-1 inline-flex justify-center rounded-full bg-brand-dark text-white px-5 py-3 text-sm">
+                Book Appointment
+              </Link>
+              <div className="notranslate mt-2 flex items-center justify-center rounded-full border border-black/10 overflow-hidden text-sm">
+                <button onClick={switchToEnglish} className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-3 transition ${lang === "en" ? "bg-brand-dark text-white font-semibold" : "hover:bg-secondary"}`}>
+                  🇺🇸 <span className="notranslate">ENG</span>
+                </button>
+                <span className="text-black/20 text-xs notranslate">|</span>
+                <button onClick={switchToAmharic} className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-3 transition ${lang === "am" ? "bg-brand-dark text-white font-semibold" : "hover:bg-secondary"}`}>
+                  🇪🇹 <span className="notranslate">አማርኛ</span>
+                </button>
+              </div>
+            </nav>
+          )}
         </div>
-      </div>
-    </section>
+      </header>
+    </>
   );
 }
