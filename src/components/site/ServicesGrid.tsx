@@ -10,7 +10,7 @@ const amharicServices: Record<string, { title: string; desc: string }> = {
   },
   "cosmetic-dentistry": {
     title: "የኮስሞቲክ የጥርስ ህክምና",
-    desc: "ቪኒር፣ ጥርስን ነጭ ማድረግ እና የፈገግታ ማሻሻያ ህክምናዎች በተፈጥሯዊ እና ብሩህ ፈገግታ እንዲኖርዎት የሚያግዙ።",
+    desc: "ጥርስን ነጭ ማድረግ እና የፈገግታ ማሻሻያ ህክምናዎች በተፈጥሯዊ እና ብሩህ ፈገግታ እንዲኖርዎት የሚያግዙ።",
   },
   "dental-implants": {
     title: "የጥርስ ተከላ",
