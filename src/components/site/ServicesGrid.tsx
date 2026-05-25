@@ -37,7 +37,7 @@ const amharicServices: Record<string, { title: string; desc: string }> = {
     desc: "ተፈጥሯዊ እና ዘላቂ ውጤት ለማግኘት ዘውዶችን፣ ድልድዮችን፣ ዚርኮኒያን እና የሴራሚክ እድሳትን በመጠቀም ሙሉ ፈገግታ ሕክምና።",
   },
   "periodontic-treatment": {
-    title: "የድድ ህክምና",
+    title: "ፔሪዮዶንታል ትሪትመንት",
     desc: "ጥርስዎን ለመጠበቅ እና ድድዎን ጤናማ ለማድረግ የድድ በሽታ እና የፔሮዶንታል በሽታዎች ልዩ እንክብካቤ።",
   },
 };
