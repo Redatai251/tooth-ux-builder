@@ -47,10 +47,17 @@ export function Header() {
 
   const switchToEnglish = () => {
     setLang("en");
+    const domains = [
+      window.location.hostname,
+      "." + window.location.hostname,
+      "finandentalclinic.com",
+      ".finandentalclinic.com",
+    ];
+    domains.forEach((domain) => {
+      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
+    });
     document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + window.location.hostname;
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
-    window.location.href = window.location.href.split("?")[0];
+    window.location.href = window.location.origin + window.location.pathname;
   };
 
   return (
