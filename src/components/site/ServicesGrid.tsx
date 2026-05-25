@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const amharicServices: Record<string, { title: string; desc: string }> = {
   "preventive-care": {
-    title: "ፕሪቬንቲቭ ኬር",
+    title: "የመከላከያ እንክብካቤ",
     desc: "መደበኛ የጥርስ ምርመራ፣ ጥርስ ጽዳት፣ ፍሎራይድ ህክምና እና ሙሌት በማድረግ ጥርሶትን ጤናማ ለማቆየት እና ፈገግታዎን ለመጠበቅ።",
   },
   "cosmetic-dentistry": {
