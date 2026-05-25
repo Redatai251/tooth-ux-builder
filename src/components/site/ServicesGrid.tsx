@@ -2,9 +2,50 @@ import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { SERVICES } from "@/lib/site";
 import { useEffect, useRef, useState } from "react";
-function AnimatedCard({ s, i }: { s: typeof SERVICES[0]; i: number }) {
+
+const amharicServices: Record<string, { title: string; desc: string }> = {
+  "preventive-care": {
+    title: "የመከላከያ የጥርስ እንክብካቤ",
+    desc: "መደበኛ የጥርስ ምርመራ፣ ጥርስ ጽዳት፣ ፍሎራይድ ህክምና እና ሙሌት በማድረግ ጥርሶትን ጤናማ ለማቆየት እና ፈገግታዎን ለመጠበቅ።",
+  },
+  "cosmetic-dentistry": {
+    title: "የኮስሞቲክ የጥርስ ህክምና",
+    desc: "ቪኒር፣ ጥርስን ነጭ ማድረግ እና የፈገግታ ማሻሻያ ህክምናዎች በተፈጥሯዊ እና ብሩህ ፈገግታ እንዲኖርዎት የሚያግዙ።",
+  },
+  "dental-implants": {
+    title: "የጥርስ ተከላ",
+    desc: "የጠፉ ጥርሶችን በተፈጥሯዊ መልክ እና በቋሚነት የሚተኩ ዘመናዊ የጥርስ ተከላ ህክምናዎች።",
+  },
+  "orthodontic-treatment": {
+    title: "ኦርቶዶንቲክ ህክምና",
+    desc: "ብሬስ እና የማይታይ አላይነር በመጠቀም ጥርሶችን ለማስተካከል፣ ንክሻን ለማሻሻል እና የተስተካከለ ፈገግታ ለመፍጠር።",
+  },
+  "pediatric-dentistry": {
+    title: "የህጻናት የጥርስ ህክምና",
+    desc: "ለህጻናት በልዩ ሁኔታ የተዘጋጀ የጥርስ እንክብካቤ፣ ጤናማ ጥርስ እና ጥሩ ልምዶች እንዲኖራቸው የሚያግዝ።",
+  },
+  "oral-surgery": {
+    title: "የአፍ ቀዶ ህክምና",
+    desc: "የጥርስ ማውጣት፣ ጥርስ ማስወገድ እና ሌሎች ቀላል የአፍ ቀዶ ህክምናዎች በሙያተኛ እጅ በደህና የሚከናወኑ።",
+  },
+  "endodontic-treatment": {
+    title: "የሩት ካናል ህክምና",
+    desc: "በጥርስ ውስጥ ያለውን ኢንፌክሽን በማስወገድ ህመምን የሚቀንስ እና የተፈጥሮ ጥርስዎን የሚያድን ዘመናዊ ህክምና።",
+  },
+  "prosthodontics": {
+    title: "ሰው ሰራሽ የጥርስ ህክምና",
+    desc: "ክራውን፣ ብሪጅ፣ ዚርኮኒያ እና ሴራሚክ በመጠቀም የተጎዱ ወይም የጠፉ ጥርሶችን በተፈጥሯዊ መልክ ለመተካት።",
+  },
+  "periodontic-treatment": {
+    title: "የድድ ህክምና",
+    desc: "የድድ በሽታን ለማከም እና ጥርሶችን ከመፍታት ለመከላከል የሚሰጥ ልዩ የድድ እንክብካቤ እና ህክምና።",
+  },
+};
+
+function AnimatedCard({ s, i, isAmharic }: { s: typeof SERVICES[0]; i: number; isAmharic: boolean }) {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -18,6 +59,11 @@ function AnimatedCard({ s, i }: { s: typeof SERVICES[0]; i: number }) {
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, [i]);
+
+  const am = amharicServices[s.slug];
+  const title = isAmharic && am ? am.title : s.title;
+  const desc = isAmharic && am ? am.desc : s.desc;
+
   return (
     <article
       ref={ref}
@@ -37,32 +83,45 @@ function AnimatedCard({ s, i }: { s: typeof SERVICES[0]; i: number }) {
         />
       </div>
       <div className="p-5 flex-1 flex flex-col">
-        <h3 className="text-lg">{s.title}</h3>
-        <p className="mt-2 text-sm text-muted-foreground flex-1">{s.desc}</p>
+        <h3 className="text-lg">{title}</h3>
+        <p className="mt-2 text-sm text-muted-foreground flex-1">{desc}</p>
         <Link
           to="/book"
           search={{ service: s.slug }}
           className="mt-4 inline-flex items-center gap-1.5 self-start rounded-full bg-brand text-white px-4 py-2 text-xs hover:opacity-90 hover:scale-105 transition-all"
         >
-          Book Appointment <ArrowUpRight className="size-3.5" />
+          {isAmharic ? "ቀጠሮ ያስይዙ" : "Book Appointment"} <ArrowUpRight className="size-3.5" />
         </Link>
       </div>
     </article>
   );
 }
+
 export function ServicesGrid() {
+  const [isAmharic, setIsAmharic] = useState(false);
+
+  useEffect(() => {
+    const check = () => {
+      const cookie = document.cookie;
+      setIsAmharic(cookie.includes("googtrans=/en/am"));
+    };
+    check();
+    const interval = setInterval(check, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-16 sm:py-20 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
           <p className="text-brand text-xs tracking-[0.25em] uppercase">— Our Services</p>
           <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl">
-            Comprehensive dental services for every family smile
+            {isAmharic ? "ለእያንዳንዱ ቤተሰብ ፈገግታ የጥርስ አገልግሎቶች" : "Comprehensive dental services for every family smile"}
           </h2>
         </div>
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {SERVICES.map((s, i) => (
-            <AnimatedCard key={s.slug} s={s} i={i} />
+            <AnimatedCard key={s.slug} s={s} i={i} isAmharic={isAmharic} />
           ))}
         </div>
       </div>
