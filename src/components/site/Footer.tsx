@@ -75,8 +75,8 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground px-2">
-          <p>Copyright © 2026 {SITE.name}. All rights reserved.</p>
-          <p>Website Developed By{" "}<a href="https://bloomuptech.com/" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">BloomUp Technologies</a></p>
+          <p>Copyright © 2026 <span className="notranslate">Finan Speciality Dental Clinic</span>. All rights reserved.</p>
+          <p>Website Developed By{" "}<a href="https://bloomuptech.com/" target="_blank" rel="noopener noreferrer" className="text-brand hover:underline notranslate">BloomUp Technologies</a></p>
         </div>
       </div>
     </footer>
