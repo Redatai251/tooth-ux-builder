@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const amharicServices: Record<string, { title: string; desc: string }> = {
   "preventive-care": {
-    title: "የመከላከያ የጥርስ እንክብካቤ",
+    title: "ፕሪቬንቲቭ ኬር",
     desc: "መደበኛ የጥርስ ምርመራ፣ ጥርስ ጽዳት፣ ፍሎራይድ ህክምና እና ሙሌት በማድረግ ጥርሶትን ጤናማ ለማቆየት እና ፈገግታዎን ለመጠበቅ።",
   },
   "cosmetic-dentistry": {
@@ -25,19 +25,19 @@ const amharicServices: Record<string, { title: string; desc: string }> = {
     desc: "ለህጻናት በልዩ ሁኔታ የተዘጋጀ የጥርስ እንክብካቤ፣ ጤናማ ጥርስ እና ጥሩ ልምዶች እንዲኖራቸው የሚያግዝ።",
   },
   "oral-surgery": {
-    title: "የአፍ ቀዶ ህክምና",
+    title: "ኦራል ሰርጀሪ",
     desc: "የጥርስ ማውጣት፣ ጥርስ ማስወገድ እና ሌሎች ቀላል የአፍ ቀዶ ህክምናዎች በሙያተኛ እጅ በደህና የሚከናወኑ።",
   },
   "endodontic-treatment": {
-    title: "የሩት ካናል ህክምና",
+    title: "ኤንዶዶንቲክ ትሪትመንት",
     desc: "በጥርስ ውስጥ ያለውን ኢንፌክሽን በማስወገድ ህመምን የሚቀንስ እና የተፈጥሮ ጥርስዎን የሚያድን ዘመናዊ ህክምና።",
   },
   "prosthodontics": {
-    title: "ሰው ሰራሽ የጥርስ ህክምና",
+    title: "ፕሮስቶዶንቲክስ",
     desc: "ክራውን፣ ብሪጅ፣ ዚርኮኒያ እና ሴራሚክ በመጠቀም የተጎዱ ወይም የጠፉ ጥርሶችን በተፈጥሯዊ መልክ ለመተካት።",
   },
   "periodontic-treatment": {
-    title: "የድድ ህክምና",
+    title: "ፔሪዮዶንቲክ ትሪትመንት",
     desc: "የድድ በሽታን ለማከም እና ጥርሶችን ከመፍታት ለመከላከል የሚሰጥ ልዩ የድድ እንክብካቤ እና ህክምና።",
   },
 };
