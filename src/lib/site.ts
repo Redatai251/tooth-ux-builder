@@ -85,7 +85,7 @@ export const SERVICES: Service[] = [
     slug: "orthodontic-treatment",
     title: "Orthodontic Treatment",
     desc: "Metal and ceramic braces and clear aligners fitted by specialists to gently straighten teeth and correct your bite.",
-    image: "https://cdicsmiles.com/wp-content/uploads/2021/12/Orthodontic-Braces-Treatment.jpg",
+    image: "https://www.smartdental.ie/wp-content/uploads/2019/06/Clear-Braces-Metal-Braces-Orthodontic-Treatment.webp",
   },
   {
     slug: "pediatric-dentistry",
