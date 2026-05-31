@@ -7,6 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react"; // ← added
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -89,6 +90,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <Analytics /> {/* ← added */}
         <Scripts />
       </body>
     </html>
