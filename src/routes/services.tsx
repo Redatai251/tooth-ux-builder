@@ -7,7 +7,11 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Dental Services — Finan Speciality Dental Clinic" },
-      { name: "description", content: "Preventive care, cosmetic dentistry, implants, braces, pediatric care, oral surgery and root canal therapy in Addis Ababa." },
+      {
+        name: "description",
+        content:
+          "Preventive care, cosmetic dentistry, implants, braces, pediatric care, oral surgery and root canal therapy in Addis Ababa.",
+      },
       { property: "og:title", content: "Dental Services — Finan Speciality Dental Clinic" },
       { property: "og:url", content: "https://tooth-ux-builder.lovable.app/services" },
     ],

@@ -27,6 +27,7 @@ Header nav shows: Home, About Us, Services, Payment Plans, Contact Us, Book Appo
 Remove: "15k Satisficed Patients" badge, all team avatar pills, denture-hero.png, denture-clinic.jpg block, info strip (Emergency/Hours/Rating), "Trusted Experts/Gentle Care/140+", denture-doctor card section, Special Offer card, Case Studies, Core Features, Doctors, Blog, old Testimonials, "Our 5k+ Patient Worldwide".
 
 Keep / new sections:
+
 - Hero with uploaded home image only. Headline: "Healthy teeth, happy life starts here". Buttons: **Book Appointment**, **Our Services** (links to `/services`). "500+ patients treated".
 - Services preview grid (7 cards from list with provided image URLs, each has "Book Appointment" button → `/book?service=...`).
 - Why choose (kept, simplified, no discount card).
@@ -37,14 +38,16 @@ Keep / new sections:
 ## 4. Services page
 
 7 services with provided external image URLs:
+
 - Preventive Care, Cosmetic Dentistry, Dental Implants, Braces, Pediatric Dentistry, Oral Surgery, Root Canal Therapy.
-Each card includes "Book Appointment" button.
+  Each card includes "Book Appointment" button.
 
 ## 5. Book Appointment page
 
 Form fields: Full Name, Age, Phone Number, Service (select with 9 options listed by user), Preferred Date, Preferred Time (12-hour AM/PM picker), Additional Notes.
 
 On submit:
+
 - Validate via Zod.
 - Send formatted message to Telegram chat `https://t.me/abenezerzewedu` via Telegram Bot API.
 - Open WhatsApp `https://wa.me/25191105655?text=...` in new tab with same info.

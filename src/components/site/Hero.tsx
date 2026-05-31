@@ -19,7 +19,7 @@ export function Hero() {
           video.muted = true;
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
     observer.observe(video);
     return () => observer.disconnect();
@@ -56,12 +56,11 @@ export function Hero() {
             <span className="text-white/90">The #1 Speciality Dental Clinic in Addis Ababa</span>
           </span>
           <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
-            Transforming smiles{" "}
-            <span className="text-brand-glow">with expert care</span>
+            Transforming smiles <span className="text-brand-glow">with expert care</span>
           </h1>
           <p className="mt-6 text-base sm:text-lg text-white/75 max-w-2xl mx-auto">
-            Gentle, advanced and affordable dental care for the whole family at
-            Finan Speciality Dental Clinic — Addis Ababa.
+            Gentle, advanced and affordable dental care for the whole family at Finan Speciality
+            Dental Clinic — Addis Ababa.
           </p>
           <div className="mt-8 flex flex-wrap gap-3 justify-center">
             <Link

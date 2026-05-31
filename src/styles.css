@@ -35,7 +35,8 @@
   --color-brand-soft: var(--brand-soft);
   --color-brand-glow: var(--brand-glow);
   --color-brand-dark: var(--brand-dark);
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 :root {
   --radius: 1rem;
@@ -57,18 +58,22 @@
   --secondary: oklch(0.96 0.01 220);
   --secondary-foreground: oklch(0.22 0.04 230);
   --muted: oklch(0.96 0.01 220);
-  --muted-foreground: oklch(0.50 0.03 230);
+  --muted-foreground: oklch(0.5 0.03 230);
   --accent: oklch(0.93 0.05 195);
   --accent-foreground: oklch(0.22 0.04 230);
-  --destructive: oklch(0.60 0.22 27);
+  --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.99 0.005 200);
   --border: oklch(0.92 0.01 220);
   --input: oklch(0.92 0.01 220);
   --ring: oklch(0.66 0.13 195);
 }
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -76,24 +81,61 @@
     font-weight: 400;
     top: 0 !important;
   }
-  h1, h2, h3, h4 { font-weight: 600; letter-spacing: -0.01em; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
 }
 
 /* Hide Google Translate bar */
-.goog-te-banner-frame { display: none !important; }
-.skiptranslate { display: none !important; }
-.goog-te-balloon-frame { display: none !important; }
-.goog-tooltip { display: none !important; }
-.goog-tooltip:after { display: none !important; }
-.goog-tooltip-content { display: none !important; }
-#goog-gt-tt { display: none !important; }
+.goog-te-banner-frame {
+  display: none !important;
+}
+.skiptranslate {
+  display: none !important;
+}
+.goog-te-balloon-frame {
+  display: none !important;
+}
+.goog-tooltip {
+  display: none !important;
+}
+.goog-tooltip:after {
+  display: none !important;
+}
+.goog-tooltip-content {
+  display: none !important;
+}
+#goog-gt-tt {
+  display: none !important;
+}
 
 /* Hide Google Translate icon and spinner */
-.goog-te-gadget-icon { display: none !important; }
-.goog-te-gadget-simple { border: none !important; background: none !important; }
-.goog-te-menu-value span { display: none !important; }
-.goog-te-spinner { display: none !important; }
-.goog-te-gadget { display: none !important; }
-#goog-gt- { display: none !important; }
-.VIpgJd-ZVi9od-aZ2wEe-wOHMyf { display: none !important; }
-.VIpgJd-ZVi9od-aZ2wEe { display: none !important; }
+.goog-te-gadget-icon {
+  display: none !important;
+}
+.goog-te-gadget-simple {
+  border: none !important;
+  background: none !important;
+}
+.goog-te-menu-value span {
+  display: none !important;
+}
+.goog-te-spinner {
+  display: none !important;
+}
+.goog-te-gadget {
+  display: none !important;
+}
+#goog-gt- {
+  display: none !important;
+}
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+  display: none !important;
+}
+.VIpgJd-ZVi9od-aZ2wEe {
+  display: none !important;
+}

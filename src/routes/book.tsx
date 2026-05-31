@@ -14,7 +14,11 @@ export const Route = createFileRoute("/book")({
   head: () => ({
     meta: [
       { title: "Book Appointment — Finan Speciality Dental Clinic" },
-      { name: "description", content: "Book your dental appointment at Finan Speciality Dental Clinic in Addis Ababa. Send your request via WhatsApp or Telegram." },
+      {
+        name: "description",
+        content:
+          "Book your dental appointment at Finan Speciality Dental Clinic in Addis Ababa. Send your request via WhatsApp or Telegram.",
+      },
       { property: "og:url", content: "https://tooth-ux-builder.lovable.app/book" },
     ],
     links: [{ rel: "canonical", href: "https://tooth-ux-builder.lovable.app/book" }],
@@ -53,8 +57,7 @@ function BookPage() {
     const v = parsed.data;
     const serviceLabel = SERVICES.find((s) => s.slug === v.service)?.title ?? v.service;
     const time = `${v.timeHour}:${String(v.timeMinute).padStart(2, "0")} ${v.timePeriod}`;
-    const message =
-`🦷 New Appointment Request — ${SITE.name}
+    const message = `🦷 New Appointment Request — ${SITE.name}
 
 Name: ${v.fullName}
 Age: ${v.age}
@@ -90,11 +93,20 @@ Notes: ${v.notes || "—"}`;
 
       <section className="py-12 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-5 gap-8">
-          <form onSubmit={handleSubmit} className="lg:col-span-3 rounded-2xl bg-white border border-border p-6 sm:p-8 space-y-5">
+          <form
+            onSubmit={handleSubmit}
+            className="lg:col-span-3 rounded-2xl bg-white border border-border p-6 sm:p-8 space-y-5"
+          >
             <Field label="Full Name" name="fullName" error={errors.fullName} />
             <div className="grid sm:grid-cols-2 gap-5">
               <Field label="Age" name="age" type="number" min={1} max={120} error={errors.age} />
-              <Field label="Phone Number" name="phone" type="tel" placeholder="+251 ..." error={errors.phone} />
+              <Field
+                label="Phone Number"
+                name="phone"
+                type="tel"
+                placeholder="+251 ..."
+                error={errors.phone}
+              />
             </div>
 
             <div>
@@ -106,7 +118,9 @@ Notes: ${v.notes || "—"}`;
               >
                 <option value="">Select a service…</option>
                 {SERVICES.map((s) => (
-                  <option key={s.slug} value={s.slug}>{s.title}</option>
+                  <option key={s.slug} value={s.slug}>
+                    {s.title}
+                  </option>
                 ))}
               </select>
               {errors.service && <p className="mt-1 text-xs text-destructive">{errors.service}</p>}
@@ -117,22 +131,46 @@ Notes: ${v.notes || "—"}`;
                 <Label>Preferred Date</Label>
                 <div className="relative mt-1.5">
                   <CalIcon className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
-                  <input type="date" name="date" min={new Date().toISOString().slice(0, 10)}
-                    className="w-full rounded-lg border border-input bg-white pl-9 pr-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand" />
+                  <input
+                    type="date"
+                    name="date"
+                    min={new Date().toISOString().slice(0, 10)}
+                    className="w-full rounded-lg border border-input bg-white pl-9 pr-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand"
+                  />
                 </div>
                 {errors.date && <p className="mt-1 text-xs text-destructive">{errors.date}</p>}
               </div>
               <div>
                 <Label>Preferred Time (12h)</Label>
                 <div className="mt-1.5 flex items-center gap-2">
-                  <select name="timeHour" defaultValue="9" className="flex-1 rounded-lg border border-input bg-white px-2 py-2.5 text-sm">
-                    {Array.from({ length: 12 }, (_, i) => i + 1).map((h) => <option key={h} value={h}>{h}</option>)}
+                  <select
+                    name="timeHour"
+                    defaultValue="9"
+                    className="flex-1 rounded-lg border border-input bg-white px-2 py-2.5 text-sm"
+                  >
+                    {Array.from({ length: 12 }, (_, i) => i + 1).map((h) => (
+                      <option key={h} value={h}>
+                        {h}
+                      </option>
+                    ))}
                   </select>
                   <span>:</span>
-                  <select name="timeMinute" defaultValue="0" className="flex-1 rounded-lg border border-input bg-white px-2 py-2.5 text-sm">
-                    {[0, 15, 30, 45].map((m) => <option key={m} value={m}>{String(m).padStart(2, "0")}</option>)}
+                  <select
+                    name="timeMinute"
+                    defaultValue="0"
+                    className="flex-1 rounded-lg border border-input bg-white px-2 py-2.5 text-sm"
+                  >
+                    {[0, 15, 30, 45].map((m) => (
+                      <option key={m} value={m}>
+                        {String(m).padStart(2, "0")}
+                      </option>
+                    ))}
                   </select>
-                  <select name="timePeriod" defaultValue="AM" className="flex-1 rounded-lg border border-input bg-white px-2 py-2.5 text-sm">
+                  <select
+                    name="timePeriod"
+                    defaultValue="AM"
+                    className="flex-1 rounded-lg border border-input bg-white px-2 py-2.5 text-sm"
+                  >
                     <option value="AM">AM</option>
                     <option value="PM">PM</option>
                   </select>
@@ -142,9 +180,12 @@ Notes: ${v.notes || "—"}`;
 
             <div>
               <Label>Additional Notes (optional)</Label>
-              <textarea name="notes" rows={4}
+              <textarea
+                name="notes"
+                rows={4}
                 className="mt-1.5 w-full rounded-lg border border-input bg-white px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-brand"
-                placeholder="Anything we should know?" />
+                placeholder="Anything we should know?"
+              />
             </div>
 
             <button
@@ -179,17 +220,33 @@ Notes: ${v.notes || "—"}`;
 
           <aside className="lg:col-span-2 space-y-5">
             <div className="rounded-2xl bg-white border border-border p-6">
-              <h3 className="text-lg flex items-center gap-2"><Phone className="size-4 text-brand" /> Call us directly</h3>
+              <h3 className="text-lg flex items-center gap-2">
+                <Phone className="size-4 text-brand" /> Call us directly
+              </h3>
               <ul className="mt-3 space-y-1.5 text-sm">
                 {SITE.phones.map((p) => (
-                  <li key={p}><a href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-brand">{p}</a></li>
+                  <li key={p}>
+                    <a href={`tel:${p.replace(/\s/g, "")}`} className="hover:text-brand">
+                      {p}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
-              <img src={SITE.clinicPhotos[0]} alt="Clinic interior" loading="lazy" className="rounded-2xl aspect-square object-cover border border-border" />
-              <img src={clinic2} alt="Treatment room" loading="lazy" className="rounded-2xl aspect-square object-cover border border-border" />
+              <img
+                src={SITE.clinicPhotos[0]}
+                alt="Clinic interior"
+                loading="lazy"
+                className="rounded-2xl aspect-square object-cover border border-border"
+              />
+              <img
+                src={clinic2}
+                alt="Treatment room"
+                loading="lazy"
+                className="rounded-2xl aspect-square object-cover border border-border"
+              />
             </div>
           </aside>
         </div>
@@ -203,8 +260,17 @@ function Label({ children }: { children: React.ReactNode }) {
 }
 
 function Field({
-  label, name, type = "text", error, ...rest
-}: { label: string; name: string; type?: string; error?: string } & React.InputHTMLAttributes<HTMLInputElement>) {
+  label,
+  name,
+  type = "text",
+  error,
+  ...rest
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  error?: string;
+} & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
       <Label>{label}</Label>

@@ -22,11 +22,7 @@ export function LangProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("lang", newLang);
   };
 
-  return (
-    <LangContext.Provider value={{ lang, setLang }}>
-      {children}
-    </LangContext.Provider>
-  );
+  return <LangContext.Provider value={{ lang, setLang }}>{children}</LangContext.Provider>;
 }
 
 export function useLang() {

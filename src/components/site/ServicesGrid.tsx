@@ -62,7 +62,7 @@ function AnimatedCard({
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -91,10 +91,10 @@ function AnimatedCard({
         />
       </div>
       <div className="p-5 flex-1 flex flex-col">
-        <h3 className={`text-lg ${isAmharic ? "notranslate" : ""}`}>
-          {title}
-        </h3>
-        <p className={`mt-2 text-sm text-muted-foreground flex-1 ${isAmharic ? "notranslate" : ""}`}>
+        <h3 className={`text-lg ${isAmharic ? "notranslate" : ""}`}>{title}</h3>
+        <p
+          className={`mt-2 text-sm text-muted-foreground flex-1 ${isAmharic ? "notranslate" : ""}`}
+        >
           {desc}
         </p>
         <Link
@@ -113,13 +113,10 @@ function AnimatedCard({
 }
 
 export function ServicesGrid() {
-  const [isAmharic, setIsAmharic] = useState(
-    () => localStorage.getItem("lang") === "am"
-  );
+  const [isAmharic, setIsAmharic] = useState(() => localStorage.getItem("lang") === "am");
 
   useEffect(() => {
-    const handler = () =>
-      setIsAmharic(localStorage.getItem("lang") === "am");
+    const handler = () => setIsAmharic(localStorage.getItem("lang") === "am");
     window.addEventListener("langchange", handler);
     return () => window.removeEventListener("langchange", handler);
   }, []);
@@ -128,7 +125,9 @@ export function ServicesGrid() {
     <section className="py-16 sm:py-20 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <p className={`text-brand text-xs tracking-[0.25em] uppercase ${isAmharic ? "notranslate" : ""}`}>
+          <p
+            className={`text-brand text-xs tracking-[0.25em] uppercase ${isAmharic ? "notranslate" : ""}`}
+          >
             — {isAmharic ? "አገልግሎቶቻችን" : "Our Services"}
           </p>
           <h2 className={`mt-3 text-3xl sm:text-4xl lg:text-5xl ${isAmharic ? "notranslate" : ""}`}>

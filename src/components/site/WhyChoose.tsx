@@ -14,10 +14,20 @@ export function WhyChoose() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-2 gap-10 items-center">
         <div className="grid grid-cols-2 gap-3">
           <div className="rounded-2xl overflow-hidden border border-border aspect-[4/5]">
-            <img src={SITE.clinicPhotos[0]} alt="Finan dental clinic interior" className="w-full h-full object-cover" loading="lazy" />
+            <img
+              src={SITE.clinicPhotos[0]}
+              alt="Finan dental clinic interior"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
           <div className="rounded-2xl overflow-hidden border border-border aspect-[4/5] mt-8">
-            <img src={SITE.clinicPhotos[1]} alt="Finan dental clinic building" className="w-full h-full object-cover" loading="lazy" />
+            <img
+              src={SITE.clinicPhotos[1]}
+              alt="Finan dental clinic building"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
         <div>
