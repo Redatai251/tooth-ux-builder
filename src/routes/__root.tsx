@@ -7,7 +7,6 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { Analytics } from "@vercel/analytics/react"; // ← added
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -75,6 +74,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
+    scripts: [
+      {
+        src: "https://va.vercel-scripts.com/v1/script.debug.js",
+        defer: true,
+        "data-endpoint": "/api/vercel/vitals",
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -90,7 +96,6 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
-        <Analytics /> {/* ← added */}
         <Scripts />
       </body>
     </html>
