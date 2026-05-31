@@ -22,20 +22,19 @@ declare global {
 export function Header() {
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState<"en" | "am">(
-    () => (localStorage.getItem("lang") as "en" | "am") || "en"
+    () => (localStorage.getItem("lang") as "en" | "am") || "en",
   );
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src =
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     script.async = true;
     document.body.appendChild(script);
 
     window.googleTranslateElementInit = () => {
       new window.google.translate.TranslateElement(
         { pageLanguage: "en", includedLanguages: "en,am", autoDisplay: false },
-        "google_translate_element"
+        "google_translate_element",
       );
     };
   }, []);
@@ -62,8 +61,7 @@ export function Header() {
     domains.forEach((domain) => {
       document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}`;
     });
-    document.cookie =
-      "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     window.location.href = window.location.origin + window.location.pathname;
   };
 
@@ -73,11 +71,7 @@ export function Header() {
       <header className="absolute top-0 inset-x-0 z-40 pt-3 sm:pt-4">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="flex items-center gap-3 sm:gap-6 rounded-full bg-white/95 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,30,120,0.25)] ring-1 ring-black/5 pl-3 pr-3 sm:pl-5 sm:pr-2 py-2">
-            <Link
-              to="/"
-              className="flex items-center shrink-0"
-              onClick={() => setOpen(false)}
-            >
+            <Link to="/" className="flex items-center shrink-0" onClick={() => setOpen(false)}>
               <img
                 src={logo}
                 alt="Finan Speciality Dental Clinic"
@@ -182,9 +176,7 @@ export function Header() {
                 <button
                   onClick={switchToEnglish}
                   className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-3 transition ${
-                    lang === "en"
-                      ? "bg-brand-dark text-white font-semibold"
-                      : "hover:bg-secondary"
+                    lang === "en" ? "bg-brand-dark text-white font-semibold" : "hover:bg-secondary"
                   }`}
                 >
                   🇺🇸 <span className="notranslate">ENG</span>
@@ -193,9 +185,7 @@ export function Header() {
                 <button
                   onClick={switchToAmharic}
                   className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-3 transition ${
-                    lang === "am"
-                      ? "bg-brand-dark text-white font-semibold"
-                      : "hover:bg-secondary"
+                    lang === "am" ? "bg-brand-dark text-white font-semibold" : "hover:bg-secondary"
                   }`}
                 >
                   🇪🇹 <span className="notranslate">አማርኛ</span>

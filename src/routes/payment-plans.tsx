@@ -7,7 +7,11 @@ export const Route = createFileRoute("/payment-plans")({
   head: () => ({
     meta: [
       { title: "Payment Plans — Finan Speciality Dental Clinic" },
-      { name: "description", content: "Flexible installments and student discounts. Care that fits your budget at Finan Speciality Dental Clinic." },
+      {
+        name: "description",
+        content:
+          "Flexible installments and student discounts. Care that fits your budget at Finan Speciality Dental Clinic.",
+      },
       { property: "og:title", content: "Payment Plans — Finan Dental" },
       { property: "og:url", content: "https://tooth-ux-builder.lovable.app/payment-plans" },
     ],
@@ -41,7 +45,10 @@ const plans = [
 function PaymentPlansPage() {
   return (
     <Layout>
-      <section className="pt-36 sm:pt-44 pb-14 sm:pb-20" style={{ background: "var(--hero-gradient)" }}>
+      <section
+        className="pt-36 sm:pt-44 pb-14 sm:pb-20"
+        style={{ background: "var(--hero-gradient)" }}
+      >
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <p className="text-brand text-xs tracking-[0.25em] uppercase">— Payment Plans</p>
           <h1 className="mt-3 text-4xl sm:text-5xl">Care that fits your budget</h1>
