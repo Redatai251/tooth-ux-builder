@@ -30,7 +30,7 @@ export const SITE = {
     },
     {
       name: "Facebook",
-      href: "https://web.facebook.com/people/Finan-Speciality-Dental-Clinic/",
+      href: "https://web.facebook.com/p/Finan-Speciality-Dental-Clinic-61557142123469/",
       icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/960px-2023_Facebook_icon.svg.png",
     },
     {
