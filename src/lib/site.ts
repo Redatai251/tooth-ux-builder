@@ -35,12 +35,12 @@ export const SITE = {
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/",
-      icon: "https://www.instagram.com/finanspecialitydentalclinic/",
+      href: "https://www.instagram.com/finanspecialitydentalclinic/",
+      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSejfd7ZJHBjjE1vLNxizkv3il_IbpJVzOQjg&s",
     },
     {
       name: "Telegram",
-      href: "https://t.me/abenezerzewedu",
+      href: "https://t.me/+251911055655",
       icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3cHB6VomfB1AuG5MfXObJ_9VhZvWJee_Qgg&s",
     },
     {
