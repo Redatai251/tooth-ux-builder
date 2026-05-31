@@ -4,7 +4,7 @@ export const SITE = {
   domain: "https://tooth-ux-builder.lovable.app",
   phones: ["+251 91 105 5655", "+251 94 803 3831", "+251 98 447 0444"],
   whatsapp: "251911055655",
-  telegramUser: "abenezerzewedu",
+  telegramUser: "+251 91 105 5655",
   email: "info@finandental.com",
   address: {
     line1: "Abrams Building, Cameroon St, Addis Ababa",
@@ -36,7 +36,7 @@ export const SITE = {
     {
       name: "Instagram",
       href: "https://www.instagram.com/",
-      icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJZq17XNmKJNrTtEeo8rQIOLgoziEgQWnP2Q&s",
+      icon: "https://www.instagram.com/finanspecialitydentalclinic/",
     },
     {
       name: "Telegram",
